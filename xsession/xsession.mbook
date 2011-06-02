@@ -5,9 +5,9 @@ xmodmap ${HOME}/config/xmodmap/internal-macbook
 
 xrdb merge ${HOME}/config/xrdb/solarized.xrdb
 
-feh --bg-scale ${HOME}/config/feh/wallpaper
-
 xrandr --output VGA1 --auto --output LVDS1 --off --output TV1 --off
+
+feh --bg-scale ${HOME}/config/feh/wallpaper
 
 sawfish & WM=$!
 
