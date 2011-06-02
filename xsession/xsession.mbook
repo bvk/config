@@ -2,6 +2,9 @@
 
 xmodmap ${HOME}/config/xmodmap/macbook-default-keycodes
 xmodmap ${HOME}/config/xmodmap/internal-macbook
+
+xrdb merge ${HOME}/config/xrdb/solarized.xrdb
+
 xrandr --output VGA1 --auto --output LVDS1 --off --output TV1 --off
 
 sawfish & WM=$!
