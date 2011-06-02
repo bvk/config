@@ -1,0 +1,5 @@
+#!/bin/bash
+
+HOSTNAME=`hostname -s`
+source $HOME/config/xsession/xsession.$HOSTNAME
+

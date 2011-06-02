@@ -1,0 +1,18 @@
+#!/bin/bash
+
+xmodmap ${HOME}/config/xmodmap/macbook-default-keycodes
+xmodmap ${HOME}/config/xmodmap/internal-macbook
+xrandr --output VGA1 --auto --output LVDS1 --off --output TV1 --off
+
+sawfish & WM=$!
+
+while true
+do
+	sleep $((10*60))
+	zenity --warning --text 'Drink water now!'
+done & REMINDER=$!
+
+urxvt -g 80x40
+
+wait $WM
+kill $REMINDER

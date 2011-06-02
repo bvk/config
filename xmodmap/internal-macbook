@@ -1,0 +1,19 @@
+clear Lock
+clear mod1
+clear mod2
+clear mod3
+clear mod4
+clear mod5
+clear control
+
+keysym Caps_Lock = Control_L
+keysym Super_L = Meta_L Alt_L
+keysym Alt_L = Super_L Hyper_L
+
+add mod1 = Alt_L
+add mod1 = Meta_L
+
+add control = Control_L
+add mod4 = Hyper_L
+add mod4 = Super_L
+
