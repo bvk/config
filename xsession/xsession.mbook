@@ -14,5 +14,7 @@ done & REMINDER=$!
 
 urxvt -g 80x40
 
+feh --bg-scale ${HOME}/config/feh/wallpaper
+
 wait $WM
 kill $REMINDER
