@@ -1,0 +1,2 @@
+(require 'sawmill-defaults)
+(bind-keys global-keymap "M-Home" '(system "gnome-terminal --use-factory --start-factory-server &"))

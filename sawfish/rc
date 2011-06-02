@@ -1,0 +1,57 @@
+(require 'sawmill-defaults)
+(require 'maximize)
+
+;; Keybindings
+
+(bind-keys global-keymap "W-Q" 'quit)
+(bind-keys global-keymap "W-R" 'restart)
+
+(bind-keys global-keymap "W-TAB" 'cycle-windows)
+(bind-keys global-keymap "W-S-TAB" 'cycle-windows-backwards)
+
+(bind-keys global-keymap "W-e"
+	   '(run-shell-command
+	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e emacsclient -a='' -nw"))
+(bind-keys global-keymap "W-E"
+	   '(run-shell-command "emacsclient -a='' -c"))
+
+(bind-keys global-keymap "W-t"
+	   '(run-shell-command "urxvt -fn 6x13 || gnome-terminal"))
+(bind-keys global-keymap "W-T"
+	   '(run-shell-command "urxvt || gnome-terminal"))
+(bind-keys global-keymap "W-f"
+	   '(run-shell-command "firefox -no-remote"))
+(bind-keys global-keymap "W-r"
+	   '(run-shell-command "gmrun"))
+(bind-keys global-keymap "W-l"
+	   '(run-shell-command "xscreensaver-command -lock"))
+(bind-keys global-keymap "W-x"
+	   '(maximize-window-toggle (input-focus)))
+(bind-keys global-keymap "W-X"
+	   '(maximize-window-vertically-toggle (input-focus)))
+(bind-keys global-keymap "W-z"
+	   '(toggle-window-iconified (input-focus)))
+(bind-keys global-keymap "W-w"
+	   '(delete-window-safely (input-focus)))
+(bind-keys global-keymap "W-I"
+	   '(set-window-frame (input-focus) nil-frame))
+
+(bind-keys global-keymap "W-!" '(move-window-to-workspace (input-focus) current-workspace 0))
+(bind-keys global-keymap "W-@" '(move-window-to-workspace (input-focus) current-workspace 1))
+(bind-keys global-keymap "W-#" '(move-window-to-workspace (input-focus) current-workspace 2))
+(bind-keys global-keymap "W-$" '(move-window-to-workspace (input-focus) current-workspace 3))
+(bind-keys global-keymap "W-%" '(move-window-to-workspace (input-focus) current-workspace 4))
+(bind-keys global-keymap "W-^" '(move-window-to-workspace (input-focus) current-workspace 5))
+(bind-keys global-keymap "W-&" '(move-window-to-workspace (input-focus) current-workspace 6))
+(bind-keys global-keymap "W-*" '(move-window-to-workspace (input-focus) current-workspace 7))
+(bind-keys global-keymap "W-(" '(move-window-to-workspace (input-focus) current-workspace 8))
+
+(bind-keys global-keymap "W-1" '(select-workspace 0))
+(bind-keys global-keymap "W-2" '(select-workspace 1))
+(bind-keys global-keymap "W-3" '(select-workspace 2))
+(bind-keys global-keymap "W-4" '(select-workspace 3))
+(bind-keys global-keymap "W-5" '(select-workspace 4))
+(bind-keys global-keymap "W-6" '(select-workspace 5))
+(bind-keys global-keymap "W-7" '(select-workspace 6))
+(bind-keys global-keymap "W-8" '(select-workspace 7))
+(bind-keys global-keymap "W-9" '(select-workspace 8))

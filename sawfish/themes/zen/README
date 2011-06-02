@@ -1,0 +1,1 @@
+The png's are for a part of the theme with which I was experimenting. This theme is editable by the sawmill themer, and you can use that to activate the experimental part; just open sawmill-themer and change the default mapping from default to shader_activated. I don't use it because it slows my system down too much (32mb RAM, 266MHz i586 MMX).
