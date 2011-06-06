@@ -19,6 +19,8 @@ done & REMINDER=$!
 
 urxvt -g 80x40 &
 
+xscreensaver -no-splash & XSCREENSAVER=$!
 
 wait $WM
 kill $REMINDER
+kill $XSCREENSAVER
