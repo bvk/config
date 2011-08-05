@@ -10,15 +10,15 @@
 (bind-keys global-keymap "W-S-TAB" 'cycle-windows-backwards)
 
 (bind-keys global-keymap "W-e"
+	   '(run-shell-command "emacsclient -a='' -c"))
+(bind-keys global-keymap "W-E"
 	   '(run-shell-command
 	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e emacsclient -a='' -nw"))
-(bind-keys global-keymap "W-E"
-	   '(run-shell-command "emacsclient -a='' -c"))
 
 (bind-keys global-keymap "W-t"
-	   '(run-shell-command "urxvt -fn 6x13 || gnome-terminal"))
-(bind-keys global-keymap "W-T"
 	   '(run-shell-command "urxvt || gnome-terminal"))
+(bind-keys global-keymap "W-T"
+	   '(run-shell-command "urxvt -fn 6x13 || gnome-terminal"))
 (bind-keys global-keymap "W-f"
 	   '(run-shell-command "firefox -no-remote"))
 (bind-keys global-keymap "W-r"
