@@ -1,0 +1,25 @@
+#!/bin/bash
+
+xmodmap ${HOME}/config/xmodmap/swap-caps-with-ctrl
+
+xrdb -merge ${HOME}/config/xrdb/Xdefaults
+xrdb -merge ${HOME}/config/xrdb/super-as-mod-for-urxvt
+xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
+
+feh --bg-scale ${HOME}/config/feh/wallpaper
+
+sawfish & WM=$!
+
+while true
+do
+	sleep $((10*60))
+	zenity --warning --text 'Drink water now!'
+done & REMINDER=$!
+
+urxvt -g 80x40 &
+
+xscreensaver -no-splash & XSCREENSAVER=$!
+
+wait $WM
+kill $REMINDER
+kill $XSCREENSAVER
