@@ -3,55 +3,55 @@
 
 ;; Keybindings
 
-(bind-keys global-keymap "M-Q" 'quit)
-(bind-keys global-keymap "M-R" 'restart)
+(bind-keys global-keymap "H-Q" 'quit)
+(bind-keys global-keymap "H-R" 'restart)
 
-(bind-keys global-keymap "M-TAB" 'cycle-windows)
-(bind-keys global-keymap "M-S-TAB" 'cycle-windows-backwards)
+(bind-keys global-keymap "H-TAB" 'cycle-windows)
+(bind-keys global-keymap "H-S-TAB" 'cycle-windows-backwards)
 
-(bind-keys global-keymap "M-e"
+(bind-keys global-keymap "H-e"
 	   '(run-shell-command "emacsclient -a='' -c"))
-(bind-keys global-keymap "M-E"
+(bind-keys global-keymap "H-E"
 	   '(run-shell-command
 	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e emacsclient -a='' -nw"))
 
-(bind-keys global-keymap "M-t"
+(bind-keys global-keymap "H-t"
 	   '(run-shell-command "urxvt || gnome-terminal"))
-(bind-keys global-keymap "M-T"
+(bind-keys global-keymap "H-T"
 	   '(run-shell-command "urxvt -fn 6x13 || gnome-terminal"))
-(bind-keys global-keymap "M-f"
+(bind-keys global-keymap "H-f"
 	   '(run-shell-command "firefox -no-remote"))
-(bind-keys global-keymap "M-r"
+(bind-keys global-keymap "H-r"
 	   '(run-shell-command "gmrun"))
-(bind-keys global-keymap "M-l"
+(bind-keys global-keymap "H-l"
 	   '(run-shell-command "xscreensaver-command -lock"))
-(bind-keys global-keymap "M-x"
+(bind-keys global-keymap "H-x"
 	   '(maximize-window-toggle (input-focus)))
-(bind-keys global-keymap "M-X"
+(bind-keys global-keymap "H-X"
 	   '(maximize-window-vertically-toggle (input-focus)))
-(bind-keys global-keymap "M-z"
+(bind-keys global-keymap "H-z"
 	   '(toggle-window-iconified (input-focus)))
-(bind-keys global-keymap "M-w"
+(bind-keys global-keymap "H-w"
 	   '(delete-window-safely (input-focus)))
-(bind-keys global-keymap "M-I"
+(bind-keys global-keymap "H-I"
 	   '(set-window-frame (input-focus) nil-frame))
 
-(bind-keys global-keymap "M-!" '(move-window-to-workspace (input-focus) current-workspace 0))
-(bind-keys global-keymap "M-@" '(move-window-to-workspace (input-focus) current-workspace 1))
-(bind-keys global-keymap "M-#" '(move-window-to-workspace (input-focus) current-workspace 2))
-(bind-keys global-keymap "M-$" '(move-window-to-workspace (input-focus) current-workspace 3))
-(bind-keys global-keymap "M-%" '(move-window-to-workspace (input-focus) current-workspace 4))
-(bind-keys global-keymap "M-^" '(move-window-to-workspace (input-focus) current-workspace 5))
-(bind-keys global-keymap "M-&" '(move-window-to-workspace (input-focus) current-workspace 6))
-(bind-keys global-keymap "M-*" '(move-window-to-workspace (input-focus) current-workspace 7))
-(bind-keys global-keymap "M-(" '(move-window-to-workspace (input-focus) current-workspace 8))
+(bind-keys global-keymap "H-!" '(move-window-to-workspace (input-focus) current-workspace 0))
+(bind-keys global-keymap "H-@" '(move-window-to-workspace (input-focus) current-workspace 1))
+(bind-keys global-keymap "H-#" '(move-window-to-workspace (input-focus) current-workspace 2))
+(bind-keys global-keymap "H-$" '(move-window-to-workspace (input-focus) current-workspace 3))
+(bind-keys global-keymap "H-%" '(move-window-to-workspace (input-focus) current-workspace 4))
+(bind-keys global-keymap "H-^" '(move-window-to-workspace (input-focus) current-workspace 5))
+(bind-keys global-keymap "H-&" '(move-window-to-workspace (input-focus) current-workspace 6))
+(bind-keys global-keymap "H-*" '(move-window-to-workspace (input-focus) current-workspace 7))
+(bind-keys global-keymap "H-(" '(move-window-to-workspace (input-focus) current-workspace 8))
 
-(bind-keys global-keymap "M-1" '(select-workspace 0))
-(bind-keys global-keymap "M-2" '(select-workspace 1))
-(bind-keys global-keymap "M-3" '(select-workspace 2))
-(bind-keys global-keymap "M-4" '(select-workspace 3))
-(bind-keys global-keymap "M-5" '(select-workspace 4))
-(bind-keys global-keymap "M-6" '(select-workspace 5))
-(bind-keys global-keymap "M-7" '(select-workspace 6))
-(bind-keys global-keymap "M-8" '(select-workspace 7))
-(bind-keys global-keymap "M-9" '(select-workspace 8))
+(bind-keys global-keymap "H-1" '(select-workspace 0))
+(bind-keys global-keymap "H-2" '(select-workspace 1))
+(bind-keys global-keymap "H-3" '(select-workspace 2))
+(bind-keys global-keymap "H-4" '(select-workspace 3))
+(bind-keys global-keymap "H-5" '(select-workspace 4))
+(bind-keys global-keymap "H-6" '(select-workspace 5))
+(bind-keys global-keymap "H-7" '(select-workspace 6))
+(bind-keys global-keymap "H-8" '(select-workspace 7))
+(bind-keys global-keymap "H-9" '(select-workspace 8))
