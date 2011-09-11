@@ -1,9 +1,16 @@
 #!/bin/bash
 
 xmodmap ${HOME}/config/xmodmap/swap-caps-with-ctrl
+# Make super as meta and alt as hyper.
+xmodmap -e 'keysym Super_L = Meta_L'
+xmodmap -e 'keysym Alt_L = Hyper_L'
+# Assign meta to mod1 and hyper to mod4
+xmodmap -e 'clear mod1'
+xmodmap -e 'clear mod4'
+xmodmap -e 'add mod1 = Meta_L'
+xmodmap -e 'add mod4 = Hyper_L'
 
 xrdb -merge ${HOME}/config/xrdb/Xdefaults
-xrdb -merge ${HOME}/config/xrdb/super-as-mod-for-urxvt
 xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
 feh --bg-scale ${HOME}/config/feh/wallpaper
