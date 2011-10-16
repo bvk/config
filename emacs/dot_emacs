@@ -1,0 +1,4 @@
+;; .emacs
+
+;; The main Emacs configuration file
+(load-file "~/config/emacs/emacs.el")
