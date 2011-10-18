@@ -102,3 +102,7 @@
 (when (file-exists-p "~/work/geiser/elisp")
   (add-to-list 'load-path "~/work/geiser/elisp")
   (require 'geiser-install))
+
+;; load nutanix specific customizations
+(when (file-exists-p "~/config/emacs/nutanix.el")
+  (load-file "~/config/emacs/nutanix.el"))
