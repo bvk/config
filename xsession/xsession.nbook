@@ -1,0 +1,32 @@
+#!/bin/bash
+
+xmodmap ${HOME}/config/xmodmap/swap-caps-with-ctrl
+# Make super as hyper and alt as meta.
+xmodmap -e 'keysym Super_L = Hyper_L'
+xmodmap -e 'keysym Alt_L = Meta_L'
+# Assign meta to mod1 and hyper to mod4
+xmodmap -e 'clear mod1'
+xmodmap -e 'clear mod4'
+xmodmap -e 'add mod1 = Meta_L'
+xmodmap -e 'add mod4 = Hyper_L'
+
+xrdb -merge ${HOME}/config/xrdb/Xdefaults.ubuntu
+xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
+
+feh --bg-scale ${HOME}/config/feh/wallpaper
+
+sawfish & WM=$!
+
+while true
+do
+	sleep $((10*60))
+	zenity --warning --text 'Drink water now!'
+done & REMINDER=$!
+
+urxvt -g 80x40 &
+
+xscreensaver -no-splash & XSCREENSAVER=$!
+
+wait $WM
+kill $REMINDER
+kill $XSCREENSAVER
