@@ -1,13 +1,33 @@
-;; (require 'sawmill-defaults)
-(require 'maximize)
+;; Set the window frame style to zen
+(setq default-frame-style 'zen)
 
+;; Set window modifier key to Hyper
+(require 'sawfish.wm.util.decode-events)
+(set-wm-modifier (encode-modifier '(hyper)))
+
+;; Helper function to move a window.
+(define (move-window-by w x y)
+  (let* ((pos (window-position w))
+	 (xpos (car pos))
+	 (ypos (cdr pos)))
+    (move-window-to w (+ xpos x) (+ ypos y))))
+
+;;
 ;; Keybindings
+;;
 
 (bind-keys global-keymap "H-Q" 'quit)
 (bind-keys global-keymap "H-R" 'restart)
 
 (bind-keys global-keymap "H-TAB" 'cycle-windows)
 (bind-keys global-keymap "H-S-TAB" 'cycle-windows-backwards)
+
+;; Move windows
+(bind-keys global-keymap "H-Button1-Move" 'move-window-interactively)
+(bind-keys global-keymap "H-S-Up" '(move-window-by (input-focus) 0 -10))
+(bind-keys global-keymap "H-S-Left" '(move-window-by (input-focus) -10 0))
+(bind-keys global-keymap "H-S-Right" '(move-window-by (input-focus) 10 0))
+(bind-keys global-keymap "H-S-Down" '(move-window-by (input-focus) 0 10))
 
 (bind-keys global-keymap "H-e"
 	   '(run-shell-command "bash -i -c 'emacsclient -a= -c'"))

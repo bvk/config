@@ -1,9 +1,0 @@
-;; sawfish user customization -- do not edit by hand!
-;; sawfish version 1.5.3, written Tue Sep  6 19:25:23 2011
-
-(custom-set-typed-variable (quote wm-modifier-value) (quote (hyper)) (quote modifier-list))
-(custom-set-typed-variable (quote default-frame-style) (quote zen) (quote frame-style))
-(custom-set-typed-variable (quote match-window-profile) (quote ((((WM_CLASS . "^Zenity/zenity$")) (frame-type . normal) (sticky . #t) (depth . 9)))) (quote match-window) (quote sawfish.wm.ext.match-window))
-(custom-set-typed-variable (quote place-window-mode) (quote best-fit) (quote symbol))
-(custom-set-typed-variable (quote default-font) (quote ("Pango" . "Bitstream Vera Sans 7")) (quote font))
-(custom-set-keymap (quote window-keymap) (quote (keymap (raise-and-pass-through-click . "Button1-Click") (move-window-interactively . "M-Button1-Move") (popup-window-menu . "M-Button2-Click") (raise-lower-window . "M-Button3-Click") (lower-window . "M-Down") (raise-window . "M-Up"))))
