@@ -12,6 +12,12 @@
 	 (ypos (cdr pos)))
     (move-window-to w (+ xpos x) (+ ypos y))))
 
+;; Helper function that computes cmdline options for xdotool.
+(define (xdotool-options)
+  (let* ((win (input-focus))
+	 (id (window-id win)))
+    (concat " --clearmodifiers --window " (number->string id) " ")))
+
 ;;
 ;; Keybindings
 ;;
@@ -21,6 +27,20 @@
 
 (bind-keys global-keymap "H-TAB" 'cycle-windows)
 (bind-keys global-keymap "H-S-TAB" 'cycle-windows-backwards)
+
+;; Simulate PageUp, PageDown, Home, End keys
+(bind-keys window-keymap "H-Up"
+	   '(run-shell-command (concat "xdotool key"
+				       (xdotool-options) "Page_Up")))
+(bind-keys window-keymap "H-Down"
+	   '(run-shell-command (concat "xdotool key"
+				       (xdotool-options) "Page_Down")))
+(bind-keys window-keymap "H-Left"
+	   '(run-shell-command (concat "xdotool key"
+				       (xdotool-options) "Home")))
+(bind-keys window-keymap "H-Right"
+	   '(run-shell-command (concat "xdotool key"
+				       (xdotool-options) "End")))
 
 ;; Move windows
 (bind-keys global-keymap "H-Button1-Move" 'move-window-interactively)
