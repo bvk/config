@@ -42,6 +42,20 @@
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "End")))
 
+;; Sound Volume
+(bind-keys global-keymap "H-F10"
+	   '(run-shell-command "amixer set Master toggle"))
+(bind-keys global-keymap "H-F11"
+	   '(run-shell-command "amixer set Master 10%-"))
+(bind-keys global-keymap "H-F12"
+	   '(run-shell-command "amixer set Master 10%+"))
+
+;; Display Brightness
+(bind-keys global-keymap "H-F1"
+	   '(run-shell-command "xbacklight -dec 10"))
+(bind-keys global-keymap "H-F2"
+	   '(run-shell-command "xbacklight -inc 10"))
+
 ;; Move windows
 (bind-keys global-keymap "H-Button1-Move" 'move-window-interactively)
 (bind-keys global-keymap "H-S-Up" '(move-window-by (input-focus) 0 -10))
