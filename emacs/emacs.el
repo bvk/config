@@ -86,10 +86,6 @@
 (when (require 'google-c-style nil 'noerror)
   (google-set-c-style))
 
-;; load my theme
-(when (file-exists-p "~/config/emacs/mytheme.el")
-  (load-file "~/config/emacs/mytheme.el"))
-
 ;; load my smtp settings
 (when (file-exists-p "~/config/emacs/mysmtp.el")
   (load-file "~/config/emacs/mysmtp.el"))
