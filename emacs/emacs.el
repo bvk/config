@@ -16,6 +16,12 @@
 ;; unset suspend-emacs on C-z
 (global-unset-key (kbd "C-z"))
 
+;; use X11 primary
+(setq select-active-regions nil)
+(setq mouse-drag-copy-region t)
+(setq x-select-enable-primary t)
+(setq x-select-enable-clipboard t)
+
 ;; do not show the menu bar
 (menu-bar-mode 0)
 
@@ -34,7 +40,7 @@
 ; (desktop-save-mode 1)
 
 ;; use fixed font
-(add-to-list 'default-frame-alist '(font . "inconsolata-12"))
+(add-to-list 'default-frame-alist '(font . "ubuntu mono 12"))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))
