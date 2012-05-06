@@ -8,6 +8,9 @@
 ;; set user email address
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
+;; mail auto save directory
+(setq message-auto-save-directory "~/Mail/drafts")
+
 ;; save customizations in a separate file
 (setq custom-file "~/.emacs-custom.el")
 (when (file-exists-p custom-file)
@@ -40,7 +43,7 @@
 ; (desktop-save-mode 1)
 
 ;; use fixed font
-(add-to-list 'default-frame-alist '(font . "ubuntu mono 12"))
+(add-to-list 'default-frame-alist '(font . "ubuntu mono 10"))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))
@@ -51,10 +54,13 @@
 ;; use short hands for yes or no questions
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; display trailing whitespace markers (except in ansi-term)
-(setq-default show-trailing-whitespace t)
-(add-hook 'ansi-term-mode-hook
-	  (lambda () (set-variable 'show-trailing-whitespace nil)))
+;; highlight unnecessary spaces and long lines with more than 79 characters
+;; (except in term buffers)
+(require 'whitespace)
+(global-whitespace-mode 1)
+(setq whitespace-global-modes '(not term-mode))
+(setq whitespace-style '(face trailing lines empty))
+(setq whitespace-line-column 79)
 
 ;; display column number on the mode-line
 (column-number-mode 1)
