@@ -79,6 +79,8 @@
 	   '(run-shell-command "gmrun"))
 (bind-keys global-keymap "H-l"
 	   '(run-shell-command "xscreensaver-command -lock"))
+(bind-keys global-keymap "H-s"
+	   '(run-shell-command "sudo pm-suspend"))
 (bind-keys global-keymap "H-x"
 	   '(maximize-window-toggle (input-focus)))
 (bind-keys global-keymap "H-X"
