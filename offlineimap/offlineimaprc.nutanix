@@ -1,0 +1,21 @@
+[general]
+
+pythonfile = ~/config/offlineimap/offlineimap.py
+accounts = nutanix
+
+[Account nutanix]
+localrepository = nutanix-local
+remoterepository = nutanix-remote
+
+[Repository nutanix-local]
+type = Maildir
+localfolders = ~/Maildir.nutanix
+
+[Repository nutanix-remote]
+type = Gmail
+remotehost = imap.gmail.com
+realdelete = no
+remoteuser = bvk@nutanix.com
+remotepasseval = get_password("imap.gmail.com", "bvk@nutanix.com")
+folderfilter = lambda folder: folder in \
+  ["[Gmail]/Sent Mail", "[Gmail]/All Mail"]

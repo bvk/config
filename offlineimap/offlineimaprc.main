@@ -1,0 +1,20 @@
+[general]
+
+pythonfile = ~/config/offlineimap/offlineimap.py
+accounts = main
+
+[Account main]
+localrepository = main-local
+remoterepository = main-remote
+
+[Repository main-local]
+type = Maildir
+localfolders = ~/Maildir
+
+[Repository main-remote]
+type = Gmail
+remotehost = imap.gmail.com
+realdelete = no
+remoteuser = bvkchaitanya@gmail.com
+remotepasseval = get_password("imap.gmail.com", "bvkchaitanya@gmail.com")
+folderfilter = lambda folder: folder not in ["INBOX"]
