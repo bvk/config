@@ -43,7 +43,7 @@
 ; (desktop-save-mode 1)
 
 ;; use fixed font
-(add-to-list 'default-frame-alist '(font . "ubuntu mono 10"))
+(add-to-list 'default-frame-alist '(font . "ubuntu mono 12"))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))
@@ -59,7 +59,7 @@
 (require 'whitespace)
 (global-whitespace-mode 1)
 (setq whitespace-global-modes '(not term-mode))
-(setq whitespace-style '(face trailing lines empty))
+(setq whitespace-style '(face trailing lines-tail empty))
 (setq whitespace-line-column 79)
 
 ;; display column number on the mode-line
