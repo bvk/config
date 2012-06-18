@@ -19,9 +19,16 @@ sawfish & WM=$!
 
 while true
 do
-	sleep $((10*60))
-	zenity --warning --text 'Drink water now!'
+    sleep $((10*60))
+    zenity --warning --text 'Drink water now!'
 done & REMINDER=$!
+
+while true
+do
+    sleep 120
+    offlineimap
+    notmuch new
+done &
 
 urxvt -g 80x40 &
 
