@@ -26,4 +26,4 @@
                (c-toggle-hungry-state 1)
                )))
 
-(require 'flymake-cursor)
+; (require 'flymake-cursor)

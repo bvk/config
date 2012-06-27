@@ -75,10 +75,16 @@
 ;; use ido-mode for opening files
 (ido-mode t)
 
-;; use smex to enhance M-x
-(when (require 'smex nil 'noerror)
-  (smex-initialize)
-  (global-set-key (kbd "M-x") 'smex))
+;; Use ido for M-x completion
+(global-set-key
+ "\M-x"
+ (lambda ()
+   (interactive)
+   (call-interactively
+    (intern
+     (ido-completing-read
+      "M-x "
+      (all-completions "" obarray 'commandp))))))
 
 ;; enable password caching for encryption
 ;; (require 'epa-file)
