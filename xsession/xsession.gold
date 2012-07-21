@@ -30,7 +30,7 @@ do
     notmuch new
 done &
 
-urxvt -g 80x40 &
+urxvt -fn "xft:Ubuntu Mono-12:hintstyle=hintslight" -g 80x40 &
 
 xscreensaver -no-splash & XSCREENSAVER=$!
 

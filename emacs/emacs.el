@@ -43,7 +43,8 @@
 ; (desktop-save-mode 1)
 
 ;; use fixed font
-(add-to-list 'default-frame-alist '(font . "ubuntu mono 12"))
+(add-to-list 'default-frame-alist
+             '(font . "Ubuntu Mono-12:hintstyle=hintslight"))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))

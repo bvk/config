@@ -64,16 +64,17 @@
 (bind-keys global-keymap "H-S-Down" '(move-window-by (input-focus) 0 10))
 
 (bind-keys global-keymap "H-e"
-	   '(run-shell-command "bash -i -c 'emacsclient -a= -c'"))
+	   '(run-shell-command "bash -i -c '~/config/scripts/em'"))
 (bind-keys global-keymap "H-E"
 	   '(run-shell-command
-	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e emacsclient -a='' -nw"))
+	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e ~/config/scripts/enw"))
 
 (bind-keys global-keymap "H-t"
-	   '(run-shell-command "urxvt -g 80x40 -e bash -l || gnome-terminal"))
+	   '(run-shell-command
+            "urxvt -fn 'xft:Ubuntu Mono-12:hintstyle=hintslight' -g 80x40 -e bash -l"))
 (bind-keys global-keymap "H-T"
 	   '(run-shell-command
-             "urxvt -g 80x40 -fn 6x13 -e bash -l || gnome-terminal"))
+             "urxvt -g 80x40 -fn 6x13 -e bash -l"))
 (bind-keys global-keymap "H-f"
 	   '(run-shell-command "firefox -no-remote"))
 (bind-keys global-keymap "H-r"
