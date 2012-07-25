@@ -39,8 +39,9 @@
 ;; do not blink the cursor
 (blink-cursor-mode 0)
 
-;; save emacs session
-; (desktop-save-mode 1)
+;; save emacs session on exit ;; run desktop-read manually to load the session
+(require 'desktop)
+(add-hook 'kill-emacs-hook (lambda () (desktop-save "~")))
 
 ;; use fixed font
 (add-to-list 'default-frame-alist
