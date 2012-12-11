@@ -30,7 +30,7 @@ startup_message off
 #autodetach off
 
 # turn visual bell on
-vbell off
+vbell on
 vbell_msg "   Wuff  ----  Wuff!!  "
 
 # define a bigger scrollback, default is 100 lines
