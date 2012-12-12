@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Run one instance of gpg-agent and source the environment
+flock -nx $HOME/.gpg-agent-lock gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info
+. $HOME/.gpg-agent-info
+export GPG_AGENT_INFO
+
+# Load host specific settings.
 HOSTNAME=`hostname -s`
 source $HOME/config/xsession/xsession.$HOSTNAME
-
