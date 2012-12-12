@@ -108,6 +108,11 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # screen -t mail 8 mutt
 # screen -t daemon 9 tail -f /var/log/daemon.log
 
+# Emacs style search
+flow off
+defflow off
+bindkey ^s eval "copy" "stuff ^s"
+
 shell -/bin/bash
 screen 1
 screen 2
