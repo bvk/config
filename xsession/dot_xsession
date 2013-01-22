@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run one instance of gpg-agent and source the environment
-flock -nx $HOME/.gpg-agent-lock gpg-agent --daemon --write-env-file $HOME/.gpg-agent-info
+flock -nx $HOME/.gpg-agent-lock gpg-agent --max-cache-ttl 86400 --default-cache-ttl 86400 --daemon --write-env-file $HOME/.gpg-agent-info
 . $HOME/.gpg-agent-info
 export GPG_AGENT_INFO
 
