@@ -42,6 +42,10 @@
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "End")))
 
+;; External Display
+(bind-keys global-keymap "H-F4"
+	   '(run-shell-command "~/config/scripts/xrandr.sh"))
+
 ;; Sound Volume
 (bind-keys global-keymap "H-F10"
 	   '(run-shell-command "amixer set Master toggle"))
@@ -67,22 +71,20 @@
 	   '(run-shell-command "bash -i -c '~/config/scripts/em'"))
 (bind-keys global-keymap "H-E"
 	   '(run-shell-command
-	     "urxvt -g 80x40 -fn 6x13 -fb 6x13 -e ~/config/scripts/enw"))
+	     "urxvt -g 80x40 -fn 'xft:Ubuntu Mono-9:hintstule=hintslight' -fb 6x13 -e ~/config/scripts/enw"))
 
 (bind-keys global-keymap "H-t"
 	   '(run-shell-command
             "urxvt -fn 'xft:Ubuntu Mono-12:hintstyle=hintslight' -g 80x40 -e bash -l"))
 (bind-keys global-keymap "H-T"
 	   '(run-shell-command
-             "urxvt -g 80x40 -fn 6x13 -e bash -l"))
+             "urxvt -g 80x40 -fn 'xft:Ubuntu Mono-9:hintstule=hintslight' -e bash -l"))
 (bind-keys global-keymap "H-f"
 	   '(run-shell-command "firefox -no-remote"))
 (bind-keys global-keymap "H-r"
 	   '(run-shell-command "gmrun"))
 (bind-keys global-keymap "H-l"
 	   '(run-shell-command "xscreensaver-command -lock"))
-(bind-keys global-keymap "H-s"
-	   '(run-shell-command "sudo pm-suspend"))
 (bind-keys global-keymap "H-x"
 	   '(maximize-window-toggle (input-focus)))
 (bind-keys global-keymap "H-X"
