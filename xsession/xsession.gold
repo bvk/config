@@ -13,7 +13,7 @@ xmodmap -e 'add mod4 = Hyper_L'
 xrdb -merge ${HOME}/config/xrdb/Xdefaults.ubuntu
 xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
-feh --bg-scale ${HOME}/config/feh/wallpaper
+feh --bg-fill ${HOME}/config/feh/wallpaper
 
 sawfish & WM=$!
 
@@ -28,7 +28,7 @@ do
     sleep 120
     offlineimap
     notmuch new
-done &
+done & OFFLINEIMAP=$!
 
 urxvt -fn "xft:Ubuntu Mono-12:hintstyle=hintslight" -g 80x40 &
 
@@ -37,3 +37,4 @@ xscreensaver -no-splash & XSCREENSAVER=$!
 wait $WM
 kill $REMINDER
 kill $XSCREENSAVER
+kill $OFFLINEIMAP
