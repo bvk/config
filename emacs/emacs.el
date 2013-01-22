@@ -8,6 +8,9 @@
 ;; set user email address
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
+;; don't make noise; use visible bell
+(setq visible-bell t)
+
 ;; mail auto save directory
 (setq message-auto-save-directory "~/Mail/drafts")
 
