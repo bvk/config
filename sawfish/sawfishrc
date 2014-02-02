@@ -70,8 +70,7 @@
 (bind-keys global-keymap "H-e"
 	   '(run-shell-command "bash -i -c '~/config/scripts/em'"))
 (bind-keys global-keymap "H-E"
-	   '(run-shell-command
-	     "urxvt -g 80x40 -fn 'xft:Ubuntu Mono-9:hintstule=hintslight' -fb 6x13 -e ~/config/scripts/enw"))
+	   '(run-shell-command "bash -i -c '~/config/scripts/ems'"))
 
 (bind-keys global-keymap "H-t"
 	   '(run-shell-command
