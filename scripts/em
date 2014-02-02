@@ -1,2 +1,2 @@
 #! /bin/sh
-emacsclient -a="" -c
+$HOME/emacs/emacs/lib-src/emacsclient -a="" -c
