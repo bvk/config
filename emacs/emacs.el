@@ -125,3 +125,9 @@
 ;; load nutanix specific customizations
 (when (string= system-name "copper.corp.nutanix.com")
   (load-file "~/config/emacs/nutanix.el"))
+
+;; disable bold fonts and underlines globally
+(mapc
+ (lambda (face)
+   (set-face-attribute face nil :weight 'normal :underline nil))
+ (face-list))
