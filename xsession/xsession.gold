@@ -27,7 +27,7 @@ while true
 do
     sleep 120
     offlineimap
-    notmuch new
+    mu index
 done & OFFLINEIMAP=$!
 
 urxvt -fn "xft:Ubuntu Mono-12:hintstyle=hintslight" -g 80x40 &
