@@ -131,3 +131,9 @@
  (lambda (face)
    (set-face-attribute face nil :weight 'normal :underline nil))
  (face-list))
+
+;; better window switching for large screens
+(global-set-key [C-left] 'windmove-left)
+(global-set-key [C-right] 'windmove-right)
+(global-set-key [C-up] 'windmove-up)
+(global-set-key [C-down] 'windmove-down)
