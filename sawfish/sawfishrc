@@ -22,95 +22,95 @@
 ;; Keybindings
 ;;
 
-(bind-keys global-keymap "H-Q" 'quit)
-(bind-keys global-keymap "H-R" 'restart)
+(bind-keys global-keymap "Super-Q" 'quit)
+(bind-keys global-keymap "Super-R" 'restart)
 
-(bind-keys global-keymap "H-TAB" 'cycle-windows)
-(bind-keys global-keymap "H-S-TAB" 'cycle-windows-backwards)
+(bind-keys global-keymap "Super-TAB" 'cycle-windows)
+(bind-keys global-keymap "Super-S-TAB" 'cycle-windows-backwards)
 
 ;; Simulate PageUp, PageDown, Home, End keys
-(bind-keys window-keymap "H-Up"
+(bind-keys window-keymap "Super-Up"
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "Page_Up")))
-(bind-keys window-keymap "H-Down"
+(bind-keys window-keymap "Super-Down"
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "Page_Down")))
-(bind-keys window-keymap "H-Left"
+(bind-keys window-keymap "Super-Left"
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "Home")))
-(bind-keys window-keymap "H-Right"
+(bind-keys window-keymap "Super-Right"
 	   '(run-shell-command (concat "xdotool key"
 				       (xdotool-options) "End")))
 
 ;; External Display
-(bind-keys global-keymap "H-F4"
+(bind-keys global-keymap "Super-F4"
 	   '(run-shell-command "~/config/scripts/xrandr.sh"))
 
 ;; Sound Volume
-(bind-keys global-keymap "H-F10"
+(bind-keys global-keymap "Super-F10"
 	   '(run-shell-command "amixer set Master toggle"))
-(bind-keys global-keymap "H-F11"
+(bind-keys global-keymap "Super-F11"
 	   '(run-shell-command "amixer set Master 10%-"))
-(bind-keys global-keymap "H-F12"
+(bind-keys global-keymap "Super-F12"
 	   '(run-shell-command "amixer set Master 10%+"))
 
 ;; Display Brightness
-(bind-keys global-keymap "H-F1"
+(bind-keys global-keymap "Super-F1"
 	   '(run-shell-command "xbacklight -dec 10"))
-(bind-keys global-keymap "H-F2"
+(bind-keys global-keymap "Super-F2"
 	   '(run-shell-command "xbacklight -inc 10"))
 
 ;; Move windows
-(bind-keys global-keymap "H-Button1-Move" 'move-window-interactively)
-(bind-keys global-keymap "H-S-Up" '(move-window-by (input-focus) 0 -10))
-(bind-keys global-keymap "H-S-Left" '(move-window-by (input-focus) -10 0))
-(bind-keys global-keymap "H-S-Right" '(move-window-by (input-focus) 10 0))
-(bind-keys global-keymap "H-S-Down" '(move-window-by (input-focus) 0 10))
+(bind-keys global-keymap "Super-Button1-Move" 'move-window-interactively)
+(bind-keys global-keymap "Super-S-Up" '(move-window-by (input-focus) 0 -10))
+(bind-keys global-keymap "Super-S-Left" '(move-window-by (input-focus) -10 0))
+(bind-keys global-keymap "Super-S-Right" '(move-window-by (input-focus) 10 0))
+(bind-keys global-keymap "Super-S-Down" '(move-window-by (input-focus) 0 10))
 
-(bind-keys global-keymap "H-e"
+(bind-keys global-keymap "Super-e"
 	   '(run-shell-command "bash -i -c '~/config/scripts/em'"))
-(bind-keys global-keymap "H-E"
+(bind-keys global-keymap "Super-E"
 	   '(run-shell-command "bash -i -c '~/config/scripts/ems'"))
 
-(bind-keys global-keymap "H-t"
+(bind-keys global-keymap "Super-t"
 	   '(run-shell-command
             "urxvt -fn 'xft:Ubuntu Mono-12:hintstyle=hintslight' -g 80x40 -e bash -l"))
-(bind-keys global-keymap "H-T"
+(bind-keys global-keymap "Super-T"
 	   '(run-shell-command
              "urxvt -g 80x40 -fn 'xft:Ubuntu Mono-9:hintstule=hintslight' -e bash -l"))
-(bind-keys global-keymap "H-f"
+(bind-keys global-keymap "Super-f"
 	   '(run-shell-command "firefox -no-remote"))
-(bind-keys global-keymap "H-r"
+(bind-keys global-keymap "Super-r"
 	   '(run-shell-command "gmrun"))
-(bind-keys global-keymap "H-l"
+(bind-keys global-keymap "Super-l"
 	   '(run-shell-command "xscreensaver-command -lock"))
-(bind-keys global-keymap "H-x"
+(bind-keys global-keymap "Super-x"
 	   '(maximize-window-toggle (input-focus)))
-(bind-keys global-keymap "H-X"
+(bind-keys global-keymap "Super-X"
 	   '(maximize-window-vertically-toggle (input-focus)))
-(bind-keys global-keymap "H-z"
+(bind-keys global-keymap "Super-z"
 	   '(toggle-window-iconified (input-focus)))
-(bind-keys global-keymap "H-w"
+(bind-keys global-keymap "Super-w"
 	   '(delete-window-safely (input-focus)))
-(bind-keys global-keymap "H-I"
+(bind-keys global-keymap "Super-I"
 	   '(set-window-frame (input-focus) nil-frame))
 
-(bind-keys global-keymap "H-!" '(move-window-to-workspace (input-focus) current-workspace 0))
-(bind-keys global-keymap "H-@" '(move-window-to-workspace (input-focus) current-workspace 1))
-(bind-keys global-keymap "H-#" '(move-window-to-workspace (input-focus) current-workspace 2))
-(bind-keys global-keymap "H-$" '(move-window-to-workspace (input-focus) current-workspace 3))
-(bind-keys global-keymap "H-%" '(move-window-to-workspace (input-focus) current-workspace 4))
-(bind-keys global-keymap "H-^" '(move-window-to-workspace (input-focus) current-workspace 5))
-(bind-keys global-keymap "H-&" '(move-window-to-workspace (input-focus) current-workspace 6))
-(bind-keys global-keymap "H-*" '(move-window-to-workspace (input-focus) current-workspace 7))
-(bind-keys global-keymap "H-(" '(move-window-to-workspace (input-focus) current-workspace 8))
+(bind-keys global-keymap "Super-!" '(move-window-to-workspace (input-focus) current-workspace 0))
+(bind-keys global-keymap "Super-@" '(move-window-to-workspace (input-focus) current-workspace 1))
+(bind-keys global-keymap "Super-#" '(move-window-to-workspace (input-focus) current-workspace 2))
+(bind-keys global-keymap "Super-$" '(move-window-to-workspace (input-focus) current-workspace 3))
+(bind-keys global-keymap "Super-%" '(move-window-to-workspace (input-focus) current-workspace 4))
+(bind-keys global-keymap "Super-^" '(move-window-to-workspace (input-focus) current-workspace 5))
+(bind-keys global-keymap "Super-&" '(move-window-to-workspace (input-focus) current-workspace 6))
+(bind-keys global-keymap "Super-*" '(move-window-to-workspace (input-focus) current-workspace 7))
+(bind-keys global-keymap "Super-(" '(move-window-to-workspace (input-focus) current-workspace 8))
 
-(bind-keys global-keymap "H-1" '(select-workspace 0))
-(bind-keys global-keymap "H-2" '(select-workspace 1))
-(bind-keys global-keymap "H-3" '(select-workspace 2))
-(bind-keys global-keymap "H-4" '(select-workspace 3))
-(bind-keys global-keymap "H-5" '(select-workspace 4))
-(bind-keys global-keymap "H-6" '(select-workspace 5))
-(bind-keys global-keymap "H-7" '(select-workspace 6))
-(bind-keys global-keymap "H-8" '(select-workspace 7))
-(bind-keys global-keymap "H-9" '(select-workspace 8))
+(bind-keys global-keymap "Super-1" '(select-workspace 0))
+(bind-keys global-keymap "Super-2" '(select-workspace 1))
+(bind-keys global-keymap "Super-3" '(select-workspace 2))
+(bind-keys global-keymap "Super-4" '(select-workspace 3))
+(bind-keys global-keymap "Super-5" '(select-workspace 4))
+(bind-keys global-keymap "Super-6" '(select-workspace 5))
+(bind-keys global-keymap "Super-7" '(select-workspace 6))
+(bind-keys global-keymap "Super-8" '(select-workspace 7))
+(bind-keys global-keymap "Super-9" '(select-workspace 8))

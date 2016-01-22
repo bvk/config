@@ -1,2 +1,3 @@
 #! /bin/sh
-$HOME/emacs/emacs/lib-src/emacsclient -a="" -c --frame-parameters='((font . "Ubuntu Mono-9:hintstule=hintslight"))'
+PATH=$PATH:$HOME/tools/bin
+emacsclient -a="" -c --frame-parameters='((font . "Ubuntu Mono-9:hintstule=hintslight"))'

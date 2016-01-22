@@ -1,2 +1,3 @@
 #! /bin/sh
-$HOME/emacs/emacs/lib-src/emacsclient -a="" -nw
+PATH=$PATH:$HOME/tools/bin
+emacsclient -a="" -nw
