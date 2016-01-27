@@ -28,6 +28,9 @@
 (bind-keys global-keymap "Super-TAB" 'cycle-windows)
 (bind-keys global-keymap "Super-S-TAB" 'cycle-windows-backwards)
 
+(bind-keys global-keymap "M-TAB" 'cycle-windows)
+(bind-keys global-keymap "M-S-TAB" 'cycle-windows-backwards)
+
 ;; Simulate PageUp, PageDown, Home, End keys
 (bind-keys window-keymap "Super-Up"
 	   '(run-shell-command (concat "xdotool key"
