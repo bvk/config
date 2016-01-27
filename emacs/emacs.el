@@ -100,10 +100,10 @@
 (show-paren-mode 1)
 (set-face-background 'show-paren-match-face "blue")
 
-;; enable marmalade package repo
+;; enable melpa package repo
 (when (require 'package nil 'noerror)
   (add-to-list 'package-archives
-	       '("marmalade" . "http://marmalade-repo.org/packages/")))
+	       '("melpa-stablle" . "http://stable.melpa.org/packages/") t))
 
 ;; set Nutanix customizations
 (when (require 'google-c-style nil 'noerror)
@@ -137,3 +137,7 @@
 (global-set-key [C-right] 'windmove-right)
 (global-set-key [C-up] 'windmove-up)
 (global-set-key [C-down] 'windmove-down)
+
+;; set keybindings for magit
+(when (require 'magit nil 'noerror)
+  (global-set-key (kbd "C-x g") 'magit-status))
