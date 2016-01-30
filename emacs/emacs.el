@@ -103,7 +103,9 @@
 ;; enable melpa package repo
 (when (require 'package nil 'noerror)
   (add-to-list 'package-archives
-	       '("melpa-stablle" . "http://stable.melpa.org/packages/") t))
+	       '("melpa-stablle" . "http://stable.melpa.org/packages/") t)
+  (add-to-list 'package-archives
+	       '("melpa" . "https://melpa.org/packages/")))
 
 ;; set Nutanix customizations
 (when (require 'google-c-style nil 'noerror)
@@ -141,3 +143,6 @@
 ;; set keybindings for magit
 (when (require 'magit nil 'noerror)
   (global-set-key (kbd "C-x g") 'magit-status))
+
+;; load support for protobuf mode.
+(require 'protobuf-mode)
