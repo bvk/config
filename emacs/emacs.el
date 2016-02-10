@@ -152,3 +152,6 @@
 
 ;; load the window manager.
 (load-file "~/config/emacs/wm.el")
+
+;; display flymake errors in the minibuffer.
+(require 'flymake-cursor)
