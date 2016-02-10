@@ -146,6 +146,7 @@
 
 ;; load support for protobuf mode.
 (require 'protobuf-mode)
+(add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 
 ;; delete trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
