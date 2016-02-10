@@ -149,3 +149,6 @@
 
 ;; delete trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; load the window manager.
+(load-file "~/config/emacs/wm.el")
