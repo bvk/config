@@ -144,6 +144,9 @@
 (when (require 'magit nil 'noerror)
   (global-set-key (kbd "C-x g") 'magit-status))
 
+;; set keybinding for compile
+(global-set-key (kbd "C-x c") 'recompile)
+
 ;; load support for protobuf mode.
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
