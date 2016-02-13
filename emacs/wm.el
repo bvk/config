@@ -18,3 +18,18 @@
    ([?\C-v] . next)))
 
 (exwm-enable)
+
+;; s-t for terminal.
+(exwm-input-set-key
+ (kbd "s-t")
+ (lambda () (interactive)
+   (start-process "urxvt" "*Messages*"
+		  "urxvt"
+		  "-fn" "xft:Ubuntu Mono-12:hintstyle=hintslight"
+		  "-e" "bash" "-l")))
+
+;; s-l for lock.
+(exwm-input-set-key
+ (kbd "s-l")
+ (lambda () (interactive)
+   (start-process "slock" "*Messages*" "slock")))
