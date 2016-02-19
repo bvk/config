@@ -3,33 +3,36 @@
 
 (require 'exwm)
 (require 'exwm-config)
+(require 'exwm-systemtray)
+
 (exwm-config-default)
-
 (setq exwm-workspace-number 10)
-
-(exwm-input-set-simulation-keys
- '(([?\C-b] . left)
-   ([?\C-f] . right)
-   ([?\C-p] . up)
-   ([?\C-n] . down)
-   ([?\C-a] . home)
-   ([?\C-e] . end)
-   ([?\M-v] . prior)
-   ([?\C-v] . next)))
-
 (exwm-enable)
+(exwm-systemtray-enable)
 
-;; s-t for terminal.
+;; "C-c t" is for terminal.
 (exwm-input-set-key
- (kbd "s-t")
+ (kbd "C-c t")
  (lambda () (interactive)
    (start-process "urxvt" "*Messages*"
 		  "urxvt"
 		  "-fn" "xft:Ubuntu Mono-12:hintstyle=hintslight"
 		  "-e" "bash" "-l")))
 
-;; s-l for lock.
+;; "C-c i" is for internet browser.
 (exwm-input-set-key
- (kbd "s-l")
+ (kbd "C-c i")
+ (lambda () (interactive)
+   (start-process "browser" "*Messages*"
+		  "google-chrome")))
+
+;; "C-c l" is for lock.
+(exwm-input-set-key
+ (kbd "C-c l")
  (lambda () (interactive)
    (start-process "slock" "*Messages*" "slock")))
+
+;; "C-c o" is for switching workspaces.
+(exwm-input-set-key
+ (kbd "C-c o")
+ 'exwm-workspace-switch)

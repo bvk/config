@@ -142,10 +142,10 @@
 
 ;; set keybindings for magit
 (when (require 'magit nil 'noerror)
-  (global-set-key (kbd "C-x g") 'magit-status))
+  (global-set-key (kbd "C-c g") 'magit-status))
 
 ;; set keybinding for compile
-(global-set-key (kbd "C-x c") 'recompile)
+(global-set-key (kbd "C-c c") 'recompile)
 
 ;; load support for protobuf mode.
 (require 'protobuf-mode)
