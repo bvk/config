@@ -10,6 +10,9 @@
 (exwm-enable)
 (exwm-systemtray-enable)
 
+;; start network-manager system-tray applet.
+(start-process "network-manager" "*Messages*" "nm-applet" "-n")
+
 ;; "C-c t" is for terminal.
 (exwm-input-set-key
  (kbd "C-c t")
