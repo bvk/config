@@ -159,3 +159,7 @@
 
 ;; display flymake errors in the minibuffer.
 (require 'flymake-cursor)
+
+;; volume control for emacs.
+(autoload 'volume "volume"
+  "Tweak your sound card volume." t)
