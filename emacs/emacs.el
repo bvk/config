@@ -160,6 +160,9 @@
 ;; display flymake errors in the minibuffer.
 (require 'flymake-cursor)
 
+;; load gtags for gtags-mode.
+(require 'gtags)
+
 ;; volume control for emacs.
 (autoload 'volume "volume"
   "Tweak your sound card volume." t)

@@ -19,7 +19,7 @@
  (lambda () (interactive)
    (start-process "urxvt" "*Messages*"
 		  "urxvt"
-		  "-fn" "xft:Ubuntu Mono-12:hintstyle=hintslight"
+		  "-fn" "xft:Ubuntu Mono-10:hintstyle=hintslight"
 		  "-e" "bash" "-l")))
 
 ;; "C-c i" is for internet browser.
