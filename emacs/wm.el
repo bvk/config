@@ -11,7 +11,16 @@
 (exwm-systemtray-enable)
 
 ;; start network-manager system-tray applet.
-(start-process "network-manager" "*Messages*" "nm-applet" "-n")
+(defun my-nm-applet ()
+  "Starts nm-applet process in the background."
+  (interactive)
+  (start-process "network-manager" "*Messages*" "nm-applet" "-n"))
+
+;; adjust keyboard repeat rate.
+(defun my-keyboard-rate ()
+  "Adjusts keyboard repeat rate to 200."
+  (interactive)
+  (start-process "xset" "*Messages*" "xset" "r" "rate" "200" "60"))
 
 ;; "C-c t" is for terminal.
 (exwm-input-set-key
