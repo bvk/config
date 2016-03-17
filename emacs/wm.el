@@ -48,6 +48,3 @@
 (exwm-input-set-key
  (kbd "C-c o")
  'exwm-workspace-switch)
-
-;; start on workspace 1 by default.
-(exwm-workspace-switch 1)

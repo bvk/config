@@ -1,0 +1,25 @@
+Stuff
+
+* Buy List
+** Shoe rack for garage
+*** A chair to sit-in the garage.
+** Broom Stick
+* Do List
+** Renew HO6
+** Returns Shirts
+* Car List
+** Oil Maintenance for Lexus
+* Tech List
+* Reading List
+* Idea List
+** Messenger should use multiple listener addresses
+   This avoids unnecessary delays due to Address-Already-In-Use errors.
+
+   It should attempt to listen on one address at max so that another
+   address is left unused and can be listened at after any crash.
+
+   Client messengers should attempt to connect to one of the listener
+   addresses, and proceed to the another if connect was not
+   successful.
+* Tenant Address
+msshah28@gmail.com
