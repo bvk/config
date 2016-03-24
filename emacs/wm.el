@@ -28,6 +28,7 @@
  (lambda () (interactive)
    (start-process "urxvt" "*Messages*"
 		  "urxvt"
+		  "-pe" "tabbed"
 		  "-fn" "xft:Ubuntu Mono-10:hintstyle=hintslight"
 		  "-e" "bash" "-l")))
 
