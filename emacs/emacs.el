@@ -146,6 +146,9 @@
 ;; set keybinding for compile
 (global-set-key (kbd "C-c c") 'recompile)
 
+;; auto-scroll compilation output buffer.
+(setq compilation-scroll-output t)
+
 ;; load support for protobuf mode.
 (require 'protobuf-mode)
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
