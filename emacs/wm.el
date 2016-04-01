@@ -22,6 +22,14 @@
   (interactive)
   (start-process "xset" "*Messages*" "xset" "r" "rate" "200" "60"))
 
+;; restart network manager.
+(defun my-restart-network-manager ()
+  "Restart network-manager service."
+  (interactive)
+  (start-process "nm" "*Messages*"
+		 "sudo"
+		 "service" "network-manager" "restart"))
+
 ;; "C-c t" is for terminal.
 (exwm-input-set-key
  (kbd "C-c t")
