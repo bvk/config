@@ -170,4 +170,4 @@
   "Tweak your sound card volume." t)
 
 ;; open the default org-mode file on startup.
-(setq initial-buffer-choice "~/config/default.org")
+(setq initial-buffer-choice "~/default.org")
