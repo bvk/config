@@ -171,3 +171,6 @@
 
 ;; open the default org-mode file on startup.
 (setq initial-buffer-choice "~/default.org")
+
+;; read dir-locals.el from remote hosts also.
+(setq enable-remote-dir-locals t)
