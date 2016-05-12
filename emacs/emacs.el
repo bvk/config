@@ -174,3 +174,7 @@
 
 ;; read dir-locals.el from remote hosts also.
 (setq enable-remote-dir-locals t)
+
+;; if el-go is checked out, load it.
+(when (file-exists-p "~/tools/el-go.git")
+  (add-to-list 'load-path "~/tools/el-go.git"))
