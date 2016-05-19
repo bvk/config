@@ -62,7 +62,7 @@
 ;; (except in term buffers)
 (require 'whitespace)
 (global-whitespace-mode 1)
-(setq whitespace-global-modes '(not term-mode))
+(setq whitespace-global-modes '(not term-mode go-mode))
 (setq whitespace-style '(face trailing lines-tail empty))
 (setq whitespace-line-column 79)
 
