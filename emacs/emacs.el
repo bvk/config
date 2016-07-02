@@ -43,7 +43,12 @@
 (blink-cursor-mode 0)
 
 ;; save emacs session on exit ;; run desktop-read manually to load the session
-;(desktop-save-mode 1)
+(require 'desktop)
+(desktop-save-mode 1)
+(setq desktop-save 1)
+(setq desktop-load-locked-desktop t)
+(setq desktop-dirname user-emacs-directory)
+(setq desktop-restore-frames nil)
 
 ;; use fixed font
 (add-to-list 'default-frame-alist
@@ -62,7 +67,7 @@
 ;; (except in term buffers)
 (require 'whitespace)
 (global-whitespace-mode 1)
-(setq whitespace-global-modes '(not term-mode go-mode erc-mode))
+(setq whitespace-global-modes '(not term-mode go-mode erc-mode fundamental-mode))
 (setq whitespace-style '(face trailing lines-tail empty))
 (setq whitespace-line-column 79)
 

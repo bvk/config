@@ -6,3 +6,7 @@
 
 ;; Show alerts on mode-line when messages are addressed to me
 (add-hook 'rcirc-mode-hook (lambda () (rcirc-track-minor-mode 1)))
+
+;; Autojoin channels.
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#emacs" "#go-nuts" "#nethack")))
