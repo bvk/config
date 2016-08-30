@@ -44,11 +44,13 @@
 
 ;; save emacs session on exit ;; run desktop-read manually to load the session
 (require 'desktop)
+(setq desktop-save 1
+      desktop-load-locked-desktop t
+      desktop-dirname user-emacs-directory
+      desktop-restore-frames nil
+      ; Don't save remote files and/or *gpg files.
+      desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\)\\|\\(\\.gpg$\\)")
 (desktop-save-mode 1)
-(setq desktop-save 1)
-(setq desktop-load-locked-desktop t)
-(setq desktop-dirname user-emacs-directory)
-(setq desktop-restore-frames nil)
 
 ;; use fixed font
 (add-to-list 'default-frame-alist
