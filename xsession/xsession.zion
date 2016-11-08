@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Fix DPI for bigger fonts.
+xrandr --dpi 174
+
+# Load X11/xterm color theme.
+xrdb -merge ${HOME}/config/xrdb/Xdefaults
+xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
+
+# Set default wallpaper.
+# Feh --bg-scale ${HOME}/config/feh/wallpaper
+
+# Disable access control
+xhost +SI:localuser:$USER
+
+# Start Emacs
+exec dbus-launch --exit-with-session /home/bvk/tools/bin/emacs
