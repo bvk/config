@@ -113,9 +113,8 @@
   (add-to-list 'package-archives
 	       '("melpa" . "https://melpa.org/packages/")))
 
-;; set Nutanix customizations
-(when (require 'google-c-style nil 'noerror)
-  (google-set-c-style))
+;; add google coding style
+(require 'google-c-style)
 
 ;; load my smtp settings
 (when (file-exists-p "~/config/emacs/mysmtp.el")
