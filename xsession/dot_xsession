@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# Run one instance of gpg-agent and source the environment
+# Run a gpg-agent instance and source the environment
 flock -nx $HOME/.gpg-agent-lock gpg-agent --max-cache-ttl 86400 --default-cache-ttl 86400 --daemon --write-env-file $HOME/.gpg-agent-info
 . $HOME/.gpg-agent-info
 export GPG_AGENT_INFO
+
+# Run a ssh-agent instance and source the environment.
+eval `ssh-agent`
 
 # Load host specific settings.
 HOSTNAME=`hostname -s`
