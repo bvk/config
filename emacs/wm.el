@@ -3,9 +3,11 @@
 
 (require 'exwm)
 (require 'exwm-config)
+(require 'exwm-randr)
+(require 'exwm-systemtray)
 
+;; Define number of workspaces.
 (setq exwm-workspace-number 10)
-(exwm-config-ido)
 
 ;; "C-c o" is for switching workspaces.
 (exwm-input-set-key
@@ -27,6 +29,35 @@
 (add-hook 'exwm-update-class-hook
 	  (lambda ()
 	    (exwm-workspace-rename-buffer exwm-class-name)))
+
+;; Setup external monitor.
+(setq exwm-randr-workspace-output-plist
+      '(0 "eDP1"
+	 1 "HDMI2"
+	 2 "HDMI2"
+	 3 "HDMI2"
+	 4 "HDMI2"
+	 5 "HDMI2"
+	 6 "HDMI2"
+	 7 "HDMI2"
+	 8 "HDMI2"
+	 9 "HDMI2"))
+(setq my-laptop-output "eDP1")
+(setq my-monitor-output "HDMI2")
+(setq exwm-randr-screen-change-hook
+      (lambda ()
+	(start-process-shell-command
+	 "xrandr" nil "xrandr --output " my-monitor-output
+	 " --right-of " my-laptop-output " --auto")))
+
+;; Pick some height for the system tray. Some applet icons don't appear
+;; otherwise.
+(setq exwm-systemtray-height 24)
+
+;; Enable exwm.
+(exwm-enable)
+(exwm-systemtray-enable)
+(exwm-randr-enable)
 
 ;; "C-c t" is for terminal.
 (exwm-input-set-key
@@ -51,18 +82,11 @@
  (lambda () (interactive)
    (start-process "slock" "*Messages*" "slock")))
 
-;; Enable exwm.
-(exwm-enable)
-
-;; Enable exwm system tray.
-(require 'exwm-systemtray)
-(exwm-systemtray-enable)
-
-;; start network-manager system-tray applet.
-(defun my-nm-applet ()
-  "Starts nm-applet process in the background."
-  (interactive)
-  (start-process "network-manager" "*Messages*" "nm-applet" "-n"))
+;; "C-c r" is for lock.
+(exwm-input-set-key
+ (kbd "C-c r")
+ (lambda () (interactive)
+   (start-process "xrandr" "*Messages*" "xrandr" "-q")))
 
 ;; adjust keyboard repeat rate.
 (defun my-keyboard-rate ()

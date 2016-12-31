@@ -8,6 +8,9 @@
 ;; set user email address
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
+;; load the window manager.
+(load-file "~/config/emacs/wm.el")
+
 ;; don't make noise; use visible bell
 (setq visible-bell t)
 
@@ -161,9 +164,6 @@
 
 ;; delete trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; load the window manager.
-(load-file "~/config/emacs/wm.el")
 
 ;; display flymake errors in the minibuffer.
 (require 'flymake-cursor)
