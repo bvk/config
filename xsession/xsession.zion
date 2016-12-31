@@ -13,5 +13,10 @@ xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 # Disable access control
 xhost +SI:localuser:$USER
 
+# Start few applets.
+nm-applet &
+blueman-applet &
+pasystray &
+
 # Start Emacs
 exec dbus-launch --exit-with-session /home/bvk/tools/bin/emacs
