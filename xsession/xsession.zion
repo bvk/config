@@ -19,4 +19,4 @@ blueman-applet &
 pasystray &
 
 # Start Emacs
-exec dbus-launch --exit-with-session /home/bvk/tools/bin/emacs
+exec /home/bvk/tools/bin/emacs -mm
