@@ -8,6 +8,11 @@
 	 (eval
 	  . (set (make-local-variable 'compile-command)
 		 "make -C ~/cloudsimple/storectl.repo docker-all"))))
+
+     (protobuf-mode
+      . ((tab-width . 2)
+	 (indent-tabs-mode . nil)))
+
      (go-mode
       . ((eval
 	  . (add-hook 'before-save-hook 'gofmt-before-save))))))
