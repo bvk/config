@@ -69,6 +69,16 @@
 		  "-fn" "xft:Ubuntu Mono-10:hintstyle=hintslight"
 		  "-e" "bash")))
 
+;; "C-c T" is for terminal.
+(exwm-input-set-key
+ (kbd "C-c T")
+ (lambda () (interactive)
+   (start-process "urxvt" "*Messages*"
+		  "urxvt"
+		  "-pe" "tabbed"
+		  "-fn" "xft:Ubuntu Mono-16:hintstyle=hintslight"
+		  "-e" "bash")))
+
 ;; "C-c i" is for internet browser.
 (exwm-input-set-key
  (kbd "C-c i")
@@ -101,3 +111,10 @@
   (start-process "nm" "*Messages*"
 		 "sudo"
 		 "service" "network-manager" "restart"))
+
+(add-hook 'exwm-floating-setup-hook
+	  (lambda ()
+	    (progn
+	      (setq mode-line-format
+		    (list mode-line-modes mode-line-buffer-identification))
+	      (exwm-layout-show-mode-line))))
