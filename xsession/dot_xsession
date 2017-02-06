@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Source my environment variables.
+source $HOME/config/environment
+
 # Run a gpg-agent instance and source the environment
 flock -nx $HOME/.gpg-agent-lock gpg-agent --max-cache-ttl 86400 --default-cache-ttl 86400 --daemon --write-env-file $HOME/.gpg-agent-info
 . $HOME/.gpg-agent-info

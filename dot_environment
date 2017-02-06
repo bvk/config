@@ -1,4 +1,0 @@
-# -*- mode: shell-script -*-
-
-# Default libvirt to use system-wide VM configuration.
-LIBVIRT_DEFAULT_URI=qemu:///system
