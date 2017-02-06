@@ -34,6 +34,10 @@
 ;; do not show the menu bar
 (menu-bar-mode 0)
 
+;; do not show tooltips
+(tooltip-mode nil)
+(setq show-help-function nil)
+
 ;; do not show the tool bar ;; emacs-nox has no tool-bar-mode
 (when (functionp 'tool-bar-mode)
   (tool-bar-mode 0))
@@ -184,3 +188,6 @@
 ;; if el-go is checked out, load it.
 (when (file-exists-p "~/tools/el-go.git")
   (add-to-list 'load-path "~/tools/el-go.git"))
+
+;; configure go environment.
+(setq gofmt-command "goimports")

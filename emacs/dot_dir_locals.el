@@ -1,13 +1,13 @@
 ;; This file defines .dir-locals.el for all projects.  Users are
 ;; expected to link $HOME/.dir-locals.el to this file.
 
-(("cloudsimple/storectl.repo"
+(("cloudsimple/storelink.repo"
   . ((nil
       . ((tab-width . 2)
 	 (fill-column . 79)
 	 (eval
 	  . (set (make-local-variable 'compile-command)
-		 "make -C ~/cloudsimple/storectl.repo docker-all"))))
+		 "make -C ~/cloudsimple/storelink.repo docker-all"))))
 
      (protobuf-mode
       . ((tab-width . 2)
