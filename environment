@@ -1,16 +1,31 @@
 # -*- mode: shell-script -*-
 
+#
+# Configure infinite bash history and history file size.
+#
+
+HISTSIZE=""
+export HISTSIZE
+
+HISTFILESIZE=""
+export HISTFILESIZE
+
+#
 # Default libvirt to use system-wide VM configuration.
+#
+
 LIBVIRT_DEFAULT_URI=qemu:///system
 export LIBVIRT_DEFAULT_URI
 
+#
 # Use Go binaries from the user.
+#
+
 GOROOT=$HOME/tools/go
 export GOROOT
 
 GOPATH=$HOME/tools
 export GOPATH
 
-# Include Go binaries into $PATH
 PATH=$HOME/bin:$HOME/tools/bin:$HOME/tools/go/bin:$PATH
 export PATH
