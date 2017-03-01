@@ -92,17 +92,17 @@
  (lambda () (interactive)
    (start-process "slock" "*Messages*" "slock")))
 
-;; "C-c r" is for lock.
+;; "C-c r" is for xrandr setup.
 (exwm-input-set-key
  (kbd "C-c r")
  (lambda () (interactive)
    (start-process "xrandr" "*Messages*" "xrandr" "-q")))
 
-;; adjust keyboard repeat rate.
-(defun my-keyboard-rate ()
-  "Adjusts keyboard repeat rate to 200."
-  (interactive)
-  (start-process "xset" "*Messages*" "xset" "r" "rate" "200" "60"))
+;; "C-c k" is to adjust keyboard repeat rate.
+(exwm-input-set-key
+ (kbd "C-c k")
+ (lambda () (interactive)
+  (start-process "xset" "*Messages*" "xset" "r" "rate" "200" "60")))
 
 ;; restart network manager.
 (defun my-restart-network-manager ()
