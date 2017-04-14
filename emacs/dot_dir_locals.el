@@ -7,7 +7,16 @@
 	 (fill-column . 79)
 	 (eval
 	  . (set (make-local-variable 'compile-command)
-		 "make -C ~/cloudsimple/storelink.repo docker-all"))))
+		 "make -C ~/cloudsimple/storelink.repo builder-all"))))
+
+     (c++-mode
+      . ((fill-column . 79)
+	 (mode . gtags)
+	 (mode . electric-indent)
+	 (eval . (progn
+		   (google-set-c-style)
+		   (add-hook 'before-save-hook
+			     'delete-trailing-whitespace nil t)))))
 
      (protobuf-mode
       . ((tab-width . 2)
