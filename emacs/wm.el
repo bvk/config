@@ -30,25 +30,50 @@
 	  (lambda ()
 	    (exwm-workspace-rename-buffer exwm-class-name)))
 
-;; Setup external monitor.
-(setq exwm-randr-workspace-output-plist
-      '(0 "eDP1"
-	 1 "HDMI2"
-	 2 "HDMI2"
-	 3 "HDMI2"
-	 4 "HDMI2"
-	 5 "HDMI2"
-	 6 "HDMI2"
-	 7 "HDMI2"
-	 8 "HDMI2"
-	 9 "HDMI2"))
-(setq my-laptop-output "eDP1")
-(setq my-monitor-output "HDMI2")
+;; Enable two xrandr outputs one named 'default' and another named 'other'.
+(defun my-exwm-xrandr-enable (default other)
+  (start-process-shell-command
+   "xrandr" nil (concat "xrandr --output " other " --right-of " default " --auto")))
+
+;; Enable only one xrandr output named 'default' by disabling others.
+(defun my-exwm-xrandr-disable (default)
+  (start-process-shell-command
+   "xrandr" nil (concat "xrandr --output " default " --auto")))
+
+;; Update exwm-randr-workspace-output-plist with two outputs named
+;; 'default' and 'other'.  If the 'other' output is same as 'default'
+;; then all workspaces will be redirected to the 'default' output.
+(defun my-exwm-xrandr-config (default other)
+  (setq exwm-randr-workspace-output-plist
+	(progn
+	  (setq result (list 0 default))
+	  (setq index 1)
+	  (while (< index exwm-workspace-number)
+	    (setq result (append result (list index other)))
+	    (setq index (1+ index)))
+	  result)))
+
+;; Dynamically find the active xrandr outputs and update exwm
+;; workspace configuration and enable xrandr outputs appropriately.
+(defun my-exwm-xrandr-hook (default)
+  (let* ((connected-cmd "xrandr -q|awk '/ connected/ {print $1}'")
+	 (connected (process-lines "bash" "-lc" connected-cmd)))
+    (cond ((member "DP1" connected)
+	   (progn (my-exwm-xrandr-config default "DP1")
+		  (my-exwm-xrandr-enable default "DP1")))
+	  ((member "DP2" connected)
+	   (progn (my-exwm-xrandr-config default "DP2")
+		  (my-exwm-xrandr-enable default "DP2")))
+	  ((member "HDMI1" connected)
+	   (progn (my-exwm-xrandr-config default "HDMI1")
+		  (my-exwm-xrandr-enable default "HDMI1")))
+	  ((member "HDMI2" connected)
+	   (progn (my-exwm-xrandr-config default "HDMI2")
+		  (my-exwm-xrandr-enable default "HDMI2")))
+	  (t (progn (my-exwm-xrandr-config default default)
+		    (my-exwm-xrandr-disable default))))))
 (setq exwm-randr-screen-change-hook
-      (lambda ()
-	(start-process-shell-command
-	 "xrandr" nil "xrandr --output " my-monitor-output
-	 " --right-of " my-laptop-output " --auto")))
+      (lambda () (my-exwm-xrandr-hook "eDP1")))
 
 ;; Pick some height for the system tray. Some applet icons don't appear
 ;; otherwise.
