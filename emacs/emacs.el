@@ -76,9 +76,9 @@
 ;; (except in term buffers)
 (require 'whitespace)
 (global-whitespace-mode 1)
-(setq whitespace-global-modes '(not term-mode go-mode erc-mode fundamental-mode))
-(setq whitespace-style '(face trailing lines-tail empty))
-(setq whitespace-line-column 79)
+(setq whitespace-style '(face trailing empty))
+(setq whitespace-global-modes
+      '(not term-mode erc-mode fundamental-mode))
 
 ;; display column number on the mode-line
 (column-number-mode 1)
