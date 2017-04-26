@@ -137,8 +137,8 @@
   (require 'geiser-install))
 
 ;; load nutanix specific customizations
-(when (string= system-name "copper.corp.nutanix.com")
-  (load-file "~/config/emacs/nutanix.el"))
+;(when (string= system-name "copper.corp.nutanix.com")
+;  (load-file "~/config/emacs/nutanix.el"))
 
 ;; disable bold fonts and underlines globally
 (mapc
