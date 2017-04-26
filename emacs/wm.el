@@ -1,6 +1,3 @@
-(add-to-list 'load-path "~/tools/xelb.git/")
-(add-to-list 'load-path "~/tools/exwm.git/")
-
 (require 'exwm)
 (require 'exwm-config)
 (require 'exwm-randr)
@@ -31,14 +28,17 @@
 	    (exwm-workspace-rename-buffer exwm-class-name)))
 
 ;; Enable two xrandr outputs one named 'default' and another named 'other'.
-(defun my-exwm-xrandr-enable (default other)
-  (start-process-shell-command
-   "xrandr" nil (concat "xrandr --output " other " --right-of " default " --auto")))
+(defun my-exwm-xrandr-two-outputs (default other)
+  (shell-command
+   (concat "xrandr --output " other " --right-of " default " --auto")))
 
-;; Enable only one xrandr output named 'default' by disabling others.
-(defun my-exwm-xrandr-disable (default)
-  (start-process-shell-command
-   "xrandr" nil (concat "xrandr --output " default " --auto")))
+;; Enable only one xrandr output named 'default'.
+(defun my-exwm-xrandr-one-output (default)
+  (shell-command (concat "xrandr --output " default " --auto")))
+
+;; Disable xrandr output named 'output'.
+(defun my-exwm-xrandr-off (output)
+  (if output (shell-command (concat "xrandr --output " output " --off"))))
 
 ;; Update exwm-randr-workspace-output-plist with two outputs named
 ;; 'default' and 'other'.  If the 'other' output is same as 'default'
@@ -57,27 +57,35 @@
 ;; workspace configuration and enable xrandr outputs appropriately.
 (defun my-exwm-xrandr-hook (default)
   (let* ((connected-cmd "xrandr -q|awk '/ connected/ {print $1}'")
-	 (connected (process-lines "bash" "-lc" connected-cmd)))
+	 (connected (process-lines "bash" "-lc" connected-cmd))
+	 (previous (delete-dups (seq-remove
+				 'integerp
+				 exwm-randr-workspace-output-plist))))
     (cond ((member "DP1" connected)
 	   (progn (my-exwm-xrandr-config default "DP1")
-		  (my-exwm-xrandr-enable default "DP1")))
+		  (my-exwm-xrandr-two-outputs default "DP1")))
 	  ((member "DP2" connected)
 	   (progn (my-exwm-xrandr-config default "DP2")
-		  (my-exwm-xrandr-enable default "DP2")))
+		  (my-exwm-xrandr-two-outputs default "DP2")))
 	  ((member "HDMI1" connected)
 	   (progn (my-exwm-xrandr-config default "HDMI1")
-		  (my-exwm-xrandr-enable default "HDMI1")))
+		  (my-exwm-xrandr-two-outputs default "HDMI1")))
 	  ((member "HDMI2" connected)
 	   (progn (my-exwm-xrandr-config default "HDMI2")
-		  (my-exwm-xrandr-enable default "HDMI2")))
+		  (my-exwm-xrandr-two-outputs default "HDMI2")))
 	  (t (progn (my-exwm-xrandr-config default default)
-		    (my-exwm-xrandr-disable default))))))
+		    (mapcar 'my-exwm-xrandr-off
+			    (delete default previous)))))))
+
 (setq exwm-randr-screen-change-hook
       (lambda () (my-exwm-xrandr-hook "eDP1")))
 
 ;; Pick some height for the system tray. Some applet icons don't appear
 ;; otherwise.
 (setq exwm-systemtray-height 24)
+
+;; show mode-line on floating windows.
+(add-hook 'exwm-floating-setup-hook #'exwm-layout-show-mode-line)
 
 ;; Enable exwm.
 (exwm-enable)
@@ -136,10 +144,3 @@
   (start-process "nm" "*Messages*"
 		 "sudo"
 		 "service" "network-manager" "restart"))
-
-(add-hook 'exwm-floating-setup-hook
-	  (lambda ()
-	    (progn
-	      (setq mode-line-format
-		    (list mode-line-modes mode-line-buffer-identification))
-	      (exwm-layout-show-mode-line))))

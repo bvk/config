@@ -9,6 +9,16 @@
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
 ;; load the window manager.
+(add-to-list 'load-path "~/tools/xelb.repo/")
+(add-to-list 'load-path "~/tools/exwm.repo/")
+;(require 'exwm)
+;(require 'exwm-config)
+;(exwm-config-default)
+;(exwm-input-set-key
+; (kbd "C-c o") #'exwm-workspace-switch)
+;(setq debug-on-error t)
+;(setq edebug-all-forms t)
+;(setq exwm-debug-on t)
 (load-file "~/config/emacs/wm.el")
 
 ;; don't make noise; use visible bell
