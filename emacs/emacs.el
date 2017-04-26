@@ -191,3 +191,12 @@
 
 ;; configure go environment.
 (setq gofmt-command "goimports")
+
+;; enable column-marker in certain modes; whitespace mode doesn't consider
+;; tab-width when counting column numbers, so is not good enough.
+(when (require 'column-marker nil 'noerror)
+  (progn
+    (add-hook 'protobuf-mode-hook (lambda() (column-marker-1 80)))
+    (add-hook 'go-mode-hook (lambda() (column-marker-1 80)))
+    (add-hook 'c-mode-hook (lambda() (column-marker-1 80)))
+    (add-hook 'c++-mode-hook (lambda() (column-marker-1 80)))))
