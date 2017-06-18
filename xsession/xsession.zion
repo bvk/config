@@ -4,7 +4,7 @@
 xrandr --dpi 174
 
 # Load X11/xterm color theme.
-xrdb -merge ${HOME}/config/xrdb/Xdefaults
+xrdb -merge ${HOME}/config/xrdb/urxvt.xrdb
 xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
 # Set default wallpaper.

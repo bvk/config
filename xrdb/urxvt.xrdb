@@ -1,0 +1,4 @@
+!URxvt.modifier: super
+URxvt.scrollBar: false
+URxvt.visualBell: true
+URxvt.perl-ext-common: tabbed
