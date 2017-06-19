@@ -84,6 +84,9 @@
 ;; otherwise.
 (setq exwm-systemtray-height 24)
 
+;; Disable floating windows completely.
+(setq exwm-manage-force-tiling t)
+
 ;; show mode-line on floating windows.
 (add-hook 'exwm-floating-setup-hook #'exwm-layout-show-mode-line)
 
