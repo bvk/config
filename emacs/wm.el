@@ -61,31 +61,31 @@
 	 (previous (delete-dups (seq-remove
 				 'integerp
 				 exwm-randr-workspace-output-plist))))
-    (cond ((member "DP1" connected)
-	   (progn (my-exwm-xrandr-config default "DP1")
-		  (my-exwm-xrandr-two-outputs default "DP1")))
-	  ((member "DP2" connected)
-	   (progn (my-exwm-xrandr-config default "DP2")
-		  (my-exwm-xrandr-two-outputs default "DP2")))
-	  ((member "HDMI1" connected)
-	   (progn (my-exwm-xrandr-config default "HDMI1")
-		  (my-exwm-xrandr-two-outputs default "HDMI1")))
-	  ((member "HDMI2" connected)
-	   (progn (my-exwm-xrandr-config default "HDMI2")
-		  (my-exwm-xrandr-two-outputs default "HDMI2")))
+    (cond ((member "DP-1" connected)
+	   (progn (my-exwm-xrandr-config default "DP-1")
+		  (my-exwm-xrandr-two-outputs default "DP-1")))
+	  ((member "DP-2" connected)
+	   (progn (my-exwm-xrandr-config default "DP-2")
+		  (my-exwm-xrandr-two-outputs default "DP-2")))
+	  ((member "HDMI-1" connected)
+	   (progn (my-exwm-xrandr-config default "HDMI-1")
+		  (my-exwm-xrandr-two-outputs default "HDMI-1")))
+	  ((member "HDMI-2" connected)
+	   (progn (my-exwm-xrandr-config default "HDMI-2")
+		  (my-exwm-xrandr-two-outputs default "HDMI-2")))
 	  (t (progn (my-exwm-xrandr-config default default)
 		    (mapcar 'my-exwm-xrandr-off
 			    (delete default previous)))))))
 
 (setq exwm-randr-screen-change-hook
-      (lambda () (my-exwm-xrandr-hook "eDP1")))
+      (lambda () (my-exwm-xrandr-hook "eDP-1")))
 
 ;; Pick some height for the system tray. Some applet icons don't appear
 ;; otherwise.
 (setq exwm-systemtray-height 24)
 
 ;; Disable floating windows completely.
-(setq exwm-manage-force-tiling t)
+;(setq exwm-manage-force-tiling t)
 
 ;; show mode-line on floating windows.
 (add-hook 'exwm-floating-setup-hook #'exwm-layout-show-mode-line)
