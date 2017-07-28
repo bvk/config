@@ -18,14 +18,24 @@ LIBVIRT_DEFAULT_URI=qemu:///system
 export LIBVIRT_DEFAULT_URI
 
 #
-# Use Go binaries from the user.
+# Pick latest Go version from /usr/local/go directory.
 #
 
-GOROOT=$HOME/tools/go
-export GOROOT
+if test -d /usr/local/go/bin; then
+    PATH=$PATH:/usr/local/go/bin
+fi
 
-GOPATH=$HOME/tools
-export GOPATH
+#
+# Pick NoMachine binaries from /usr/NX/bin directory.
+#
 
-PATH=$HOME/bin:$HOME/tools/bin:$HOME/tools/go/bin:$PATH
+if test -d /usr/NX/bin; then
+    PATH=$PATH:/usr/NX/bin
+fi
+
+#
+# Binaries in $HOME override the rest.
+#
+
+PATH=$HOME/bin:$HOME/go/bin
 export PATH
