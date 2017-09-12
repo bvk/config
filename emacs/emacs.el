@@ -121,7 +121,6 @@
 
 ;; highlight matching parenthsis
 (show-paren-mode 1)
-(set-face-background 'show-paren-match-face "blue")
 
 ;; enable melpa package repo
 (when (require 'package nil 'noerror)

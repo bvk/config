@@ -1,11 +1,26 @@
 #!/bin/bash
 
-xset s off         # don't activate screensaver
-xset -dpms         # disable DPMS (Energy Star) features.
-xset s noblank     # don't blank the video device
+# Don't activate screensaver
+xset s off
 
+# Disable DPMS (Energy Star) features.
+xset -dpms
+
+# Don't blank the video device
+xset s noblank
+
+# Use a custom DPI based on the TV screen size.
 xrandr --dpi 174
 
-sawfish & WM=$!
+# Load X11/xterm color theme.
+xrdb -merge ${HOME}/config/xrdb/Xdefaults
+xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
-wait $WM
+# Set default wallpaper.
+feh --bg-scale ${HOME}/config/feh/wallpaper
+
+# Disable access control
+xhost +SI:localuser:$USER
+
+# Start Emacs
+exec /home/bvk/bin/emacs
