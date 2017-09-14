@@ -21,6 +21,9 @@
 ;(setq exwm-debug-on t)
 (load-file "~/config/emacs/wm.el")
 
+;; single space after period ends a sentence.
+(setq sentence-end-double-space nil)
+
 ;; don't make noise; use visible bell
 (setq visible-bell t)
 
