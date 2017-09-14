@@ -9,8 +9,8 @@
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
 ;; load the window manager.
-(add-to-list 'load-path "~/tools/xelb.repo/")
-(add-to-list 'load-path "~/tools/exwm.repo/")
+(add-to-list 'load-path "~/opt/xelb.repo/")
+(add-to-list 'load-path "~/opt/exwm.repo/")
 ;(require 'exwm)
 ;(require 'exwm-config)
 ;(exwm-config-default)
@@ -194,18 +194,15 @@
 ;; read dir-locals.el from remote hosts also.
 (setq enable-remote-dir-locals t)
 
-;; if el-go is checked out, load it.
-(when (file-exists-p "~/tools/el-go.git")
-  (add-to-list 'load-path "~/tools/el-go.git"))
-
-;; configure go environment.
-(setq gofmt-command "goimports")
-
 ;; enable column-marker in certain modes; whitespace mode doesn't consider
 ;; tab-width when counting column numbers, so is not good enough.
 (when (require 'column-marker nil 'noerror)
   (progn
     (add-hook 'protobuf-mode-hook (lambda() (column-marker-1 80)))
-    (add-hook 'go-mode-hook (lambda() (column-marker-1 80)))
     (add-hook 'c-mode-hook (lambda() (column-marker-1 80)))
     (add-hook 'c++-mode-hook (lambda() (column-marker-1 80)))))
+
+
+;; load programming language specific customizations.
+(when (require 'go-mode nil 'noerror)
+  (load-file "~/config/emacs/my-go.el"))
