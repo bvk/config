@@ -24,6 +24,9 @@
 ;; single space after period ends a sentence.
 (setq sentence-end-double-space nil)
 
+;; don't resize minibuffer cause it updates X11 windows in EXWM.
+(setq resize-mini-windows nil)
+
 ;; don't make noise; use visible bell
 (setq visible-bell t)
 
