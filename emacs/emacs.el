@@ -76,8 +76,10 @@
 (desktop-save-mode 1)
 
 ;; use fixed font
+;;
+;; rgba=rgb enables SubPixel rendering (aka ClearType).
 (add-to-list 'default-frame-alist
-             '(font . "Ubuntu Mono-12:hintstyle=hintslight"))
+             '(font . "Ubuntu Mono-12:hintstyle=hintslight:rgba=rgb"))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))
