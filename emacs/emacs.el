@@ -164,10 +164,10 @@
  (face-list))
 
 ;; better window switching for large screens
-(global-set-key [C-left] 'windmove-left)
-(global-set-key [C-right] 'windmove-right)
-(global-set-key [C-up] 'windmove-up)
-(global-set-key [C-down] 'windmove-down)
+(global-set-key (kbd "C-c w n") 'windmove-down)
+(global-set-key (kbd "C-c w p") 'windmove-up)
+(global-set-key (kbd "C-c w f") 'windmove-right)
+(global-set-key (kbd "C-c w b") 'windmove-left)
 
 ;; set keybindings for magit
 (when (require 'magit nil 'noerror)
