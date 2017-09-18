@@ -11,6 +11,14 @@ HISTFILESIZE=""
 export HISTFILESIZE
 
 #
+# Append to history file before displaying the prompt. This will make
+# history file accumulate commands from multiple terminals.
+#
+
+PROMPT_COMMAND='history -a'
+export PROMPT_COMMAND
+
+#
 # Default libvirt to use system-wide VM configuration.
 #
 
