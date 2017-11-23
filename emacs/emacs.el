@@ -25,7 +25,7 @@
 (setq sentence-end-double-space nil)
 
 ;; don't resize minibuffer cause it updates X11 windows in EXWM.
-(setq resize-mini-windows nil)
+; (setq resize-mini-windows nil)
 
 ;; don't make noise; use visible bell
 (setq visible-bell t)
@@ -79,7 +79,19 @@
 ;;
 ;; rgba=rgb enables SubPixel rendering (aka ClearType).
 (add-to-list 'default-frame-alist
-             '(font . "Ubuntu Mono-12:hintstyle=hintslight:rgba=rgb"))
+             '(font . "Ubuntu Mono-14:hintstyle=hintslight:rgba=rgb"))
+
+;; pick one of the two font sizes.
+(global-set-key
+ (kbd "C-c f")
+ (lambda ()
+   (interactive)
+   (set-frame-font "Ubuntu Mono-14:hintstyle=hintslight:rgba=rgb" t)))
+(global-set-key
+ (kbd "C-c F")
+ (lambda ()
+   (interactive)
+   (set-frame-font "Ubuntu Mono-20:hintstyle=hintslight:rgba=rgb" t)))
 
 ;; do not display the right-fringe
 (add-to-list 'default-frame-alist '(right-fringe . 0))
@@ -163,18 +175,19 @@
    (set-face-attribute face nil :weight 'normal :underline nil))
  (face-list))
 
-;; better window switching for large screens
-(global-set-key (kbd "C-c w n") 'windmove-down)
-(global-set-key (kbd "C-c w p") 'windmove-up)
-(global-set-key (kbd "C-c w f") 'windmove-right)
-(global-set-key (kbd "C-c w b") 'windmove-left)
+;; don't ever split windows vertically.
+(setq split-height-threshold nil)
+
+;; better window switching for large displays.
+(global-set-key [S-left] 'windmove-left)
+(global-set-key [S-right] 'windmove-right)
 
 ;; set keybindings for magit
 (when (require 'magit nil 'noerror)
   (global-set-key (kbd "C-c g") 'magit-status))
 
 ;; set keybinding for compile
-(global-set-key (kbd "C-c c") 'recompile)
+(global-set-key (kbd "C-c c") 'compile)
 
 ;; auto-scroll compilation output buffer.
 (setq compilation-scroll-output t)
