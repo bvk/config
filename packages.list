@@ -1,4 +1,3 @@
-acpi-support
 alsa-utils
 aspell
 build-essential
@@ -7,6 +6,8 @@ dict
 dict-wn
 dictd
 dsniff
+eject
+evince-gtk2
 fakeroot
 feh
 file
@@ -23,7 +24,10 @@ notmuch
 offlineimap
 openssh-server
 openvpn
+openvpn
+parted
 perl-doc
+pinentry-gtk2
 pkg-config
 pm-utils
 protobuf-compiler
@@ -36,6 +40,7 @@ sysstat
 tcpdump
 unzip
 valgrind
+virt-manager
 whois
 wordnet
 xbacklight
