@@ -4,7 +4,10 @@
 (("zion.sh/code.repo"
  . ((nil
      . ((tab-width . 2)
-        (fill-column . 79)))
+        (fill-column . 79)
+	(eval
+	 . (set (make-local-variable 'compile-command)
+		"make -k -C ~/zion.sh/code.repo check"))))
 
     (c++-mode
      . ((fill-column . 79)
