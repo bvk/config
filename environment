@@ -26,11 +26,17 @@ LIBVIRT_DEFAULT_URI=qemu:///system
 export LIBVIRT_DEFAULT_URI
 
 #
-# Pick latest Go version from /usr/local/go directory.
+# Pick latest Go version from ~/opt/go or /usr/local/bin directory.
 #
 
-if test -d /usr/local/go/bin; then
+if test -d $HOME/opt/go/bin; then
+    PATH=$PATH:$HOME/opt/go/bin
+    GOROOT=$HOME/opt/go
+    export GOROOT
+elif test -d /usr/local/go/bin; then
     PATH=$PATH:/usr/local/go/bin
+    GOROOT=/usr/local/go
+    export GOROOT
 fi
 
 #
