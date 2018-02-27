@@ -19,7 +19,11 @@
 ;(setq debug-on-error t)
 ;(setq edebug-all-forms t)
 ;(setq exwm-debug-on t)
-(load-file "~/config/emacs/wm.el")
+(if (eq system-type 'gnu/linux)
+    (load-file "~/config/emacs/wm.el"))
+
+;; do not word-wrap outputs in term modes.
+(setq term-suppress-hard-newline t)
 
 ;; single space after period ends a sentence.
 (setq sentence-end-double-space nil)
