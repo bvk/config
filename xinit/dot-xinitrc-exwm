@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Source default environment variables.
+. $HOME/config/environment
+
+# Start a gpg-agent instance.
+flock -nx $HOME/.gpg-agent-lock gpg-agent --max-cache-ttl 86400 --default-cache-ttl 86400 --daemon --write-env-file $HOME/.gpg-agent-info
+. $HOME/.gpg-agent-info
+export GPG_AGENT_INFO
+
+# Start an ssh-agent instance.
+eval `ssh-agent`
+
+# Merge X resources for the color theme.
+xrdb -merge $HOME/config/xrdb/solarized.xrdb
+
+# Start emacs as the window manager.
+exec $HOME/opt/bin/emacs --fullscreen
