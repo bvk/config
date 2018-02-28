@@ -9,8 +9,8 @@
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
 ;; load the window manager.
-(add-to-list 'load-path "~/opt/xelb.repo/")
-(add-to-list 'load-path "~/opt/exwm.repo/")
+(add-to-list 'load-path "~/tools/xelb.git/")
+(add-to-list 'load-path "~/tools/exwm.git/")
 ;(require 'exwm)
 ;(require 'exwm-config)
 ;(exwm-config-default)
