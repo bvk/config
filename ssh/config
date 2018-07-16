@@ -1,0 +1,4 @@
+Match OriginalHost steam exec "/sbin/ifconfig|grep '192\.168\.1\.'"
+    Hostname 192.168.1.116
+Host steam
+    Hostname ssh.zion.sh
