@@ -20,7 +20,8 @@
 ;(setq edebug-all-forms t)
 ;(setq exwm-debug-on t)
 (if (eq system-type 'gnu/linux)
-    (load-file "~/config/emacs/wm.el"))
+    (when (require 'exwm nil 'noerror)
+      (load-file "~/config/emacs/wm.el")))
 (if (eq system-type 'darwin)
     (load-file "~/config/emacs/my-darwin.el"))
 

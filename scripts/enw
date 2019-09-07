@@ -1,3 +1,2 @@
 #! /bin/sh
-PATH=$PATH:$HOME/tools/bin
-emacsclient -a="" -nw
+PATH=$HOME/bin:$PATH emacsclient -a="" -nw
