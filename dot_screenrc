@@ -62,6 +62,9 @@ bind } history
 # TERMINAL SETTINGS
 # ------------------------------------------------------------------------------
 
+# Use xterm-256color as the default terminal type.
+term xterm-256color
+
 # The vt100 description does not mention "dl". *sigh*
 termcapinfo vt100 dl=5\E[M
 
@@ -109,13 +112,3 @@ termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 # screen -t daemon 9 tail -f /var/log/daemon.log
 
 shell -/bin/bash
-screen 1
-screen 2
-screen 3
-screen 4
-screen 5
-screen 6
-screen 7
-screen 8
-screen 9
-screen 0
