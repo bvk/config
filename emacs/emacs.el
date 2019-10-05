@@ -235,7 +235,6 @@
     (add-hook 'c-mode-hook (lambda() (column-marker-1 80)))
     (add-hook 'c++-mode-hook (lambda() (column-marker-1 80)))))
 
-
 ;; load programming language specific customizations.
 (when (require 'go-mode nil 'noerror)
   (load-file "~/config/emacs/my-go.el"))
