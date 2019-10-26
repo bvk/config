@@ -11,7 +11,8 @@
 												(add-hook 'before-save-hook
 																	'delete-trailing-whitespace nil t)))))
 
- (go-mode . ((eval . (add-hook 'before-save-hook 'gofmt-before-save))))
+ (go-mode . ((truncate-lines . t)
+						 (eval . (add-hook 'before-save-hook 'gofmt-before-save))))
 
  (protobuf-mode . ((tab-width . 2)
 									 (indent-tabs-mode . nil)))

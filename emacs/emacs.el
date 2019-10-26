@@ -8,6 +8,9 @@
 ;; set user email address
 (setq user-mail-address "bvkchaitanya@gmail.com")
 
+;; add -w to the default compile-command.
+(setq compile-command "make -kw ")
+
 ;; load the window manager.
 (add-to-list 'load-path "~/tools/xelb.git/")
 (add-to-list 'load-path "~/tools/exwm.git/")
