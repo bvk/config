@@ -1,3 +1,8 @@
+;; prepend $HOME/bin and $HOME/go/bin to the path.
+(setenv "PATH" (concat (getenv "HOME") "/bin" ":"
+		       (getenv "HOME") "/go/bin" ":"
+		       (getenv "PATH")))
+
 ;; add local packages directory to the elisp load path
 (when (file-exists-p "~/config/emacs/emacs.d")
   (add-to-list 'load-path "~/config/emacs/emacs.d"))
