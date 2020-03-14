@@ -156,8 +156,9 @@
 
 ;; enable gnupg access from within emacs. This requires gpg agent
 ;; config file ~/config/gpg-agent.conf in ~/.gnupg directory.
-(setq epa-pinentry-mode 'loopback)
-(pinentry-start)
+(if (fboundp 'pinentry-start)
+		(progn (setq epa-pinentry-mode 'loopback)
+					 (pinentry-start)))
 
 ;; highlight matching parenthsis
 (show-paren-mode 1)
