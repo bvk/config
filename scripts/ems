@@ -1,2 +1,2 @@
 #! /bin/sh
-PATH=$HOME/bin:$PATH emacsclient -a="" -c --frame-parameters='((font . "Ubuntu Mono-9:hintstyle=hintslight"))'
+PATH=$HOME/bin:$PATH emacsclient -a="" -c --frame-parameters='((font . "Ubuntu Mono-9:hintstyle=hintslight"))' "$@"

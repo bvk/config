@@ -1,2 +1,2 @@
 #! /bin/sh
-PATH=$HOME/bin:$PATH emacsclient -a="" -c
+PATH=$HOME/bin:$PATH emacsclient -a="" -c "$@"

@@ -26,6 +26,13 @@ LIBVIRT_DEFAULT_URI=qemu:///system
 export LIBVIRT_DEFAULT_URI
 
 #
+# Use emacsclient as the default EDITOR.
+#
+
+EDITOR=enw
+export EDITOR
+
+#
 # Binaries in $HOME/bin and $HOME/go/bin override the rest.
 #
 
