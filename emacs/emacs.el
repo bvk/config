@@ -17,6 +17,8 @@
 (setq compile-command "make -kw ")
 
 ;; load the window manager.
+(add-to-list 'load-path "~/opt/xelb/")
+(add-to-list 'load-path "~/opt/exwm/")
 (add-to-list 'load-path "~/tools/xelb.git/")
 (add-to-list 'load-path "~/tools/exwm.git/")
 ;(require 'exwm)
