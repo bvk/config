@@ -1,4 +1,4 @@
 # -*- mode: shell-script -*-
 
-GPG_TTY=$(tty)
-export GPG_TTY
+# Source my environment variables.
+source $HOME/config/environment
