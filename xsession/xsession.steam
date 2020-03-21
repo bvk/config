@@ -23,5 +23,16 @@ feh --bg-scale ${HOME}/config/feh/wallpaper
 # Disable access control
 xhost +SI:localuser:$USER
 
+# Start few applets.
+if which blueman-applet; then
+		blueman-applet &
+fi
+if which nm-applet; then
+		nm-applet &
+fi
+if which pasystray; then
+		pasystray &
+fi
+
 # Start Emacs
 exec emacs -mm
