@@ -10,22 +10,30 @@
 (exwm-input-set-key
  (kbd "C-c o") #'exwm-workspace-switch)
 
-;; Line-editing shortcuts
-(exwm-input-set-simulation-keys
- '(([?\C-b] . left)
-   ([?\C-f] . right)
-   ([?\C-p] . up)
-   ([?\C-n] . down)
-   ([?\C-a] . home)
-   ([?\C-e] . end)
-   ([?\M-v] . prior)
-   ([?\C-v] . next)
-   ([?\C-d] . delete)))
+;; "C-c m" is for moving the workspace number.
+(exwm-input-set-key
+ (kbd "C-c m") #'exwm-workspace-move)
 
 ;; Make class name the buffer name
 (add-hook 'exwm-update-class-hook
 	  (lambda ()
 	    (exwm-workspace-rename-buffer exwm-class-name)))
+
+;; Enable emacs keybindings in selected apps based on their window class name.
+(setq my-simulation-key-window-classes '("Google-chrome" "Firefox"))
+(add-hook 'exwm-manage-finish-hook
+					(lambda ()
+						(when (and exwm-class-name (member exwm-class-name my-simulation-key-window-classes))
+							(exwm-input-set-local-simulation-keys
+							 '(([?\C-b] . left)
+								 ([?\C-f] . right)
+								 ([?\C-p] . up)
+								 ([?\C-n] . down)
+								 ([?\C-a] . home)
+								 ([?\C-e] . end)
+								 ([?\M-v] . prior)
+								 ([?\C-v] . next)
+								 ([?\C-d] . delete))))))
 
 ;; Enable two xrandr outputs one named 'default' and another named 'other'.
 (defun my-exwm-xrandr-two-outputs (default other)
