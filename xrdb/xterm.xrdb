@@ -1,0 +1,3 @@
+XTerm*metaSendsEscape: true
+XTerm*allowSendEvents: true
+XTerm*selectToClipboard: false

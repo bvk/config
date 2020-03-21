@@ -4,7 +4,9 @@
 xrandr --dpi 174
 
 # Load X11/xterm color theme.
+xrdb -merge ${HOME}/config/xrdb/Xdefaults
 xrdb -merge ${HOME}/config/xrdb/urxvt.xrdb
+xrdb -merge ${HOME}/config/xrdb/xterm.xrdb
 xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
 # Set default wallpaper.
@@ -14,9 +16,9 @@ xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 xhost +SI:localuser:$USER
 
 # Start few applets.
-nm-applet &
-blueman-applet &
-pasystray &
+# nm-applet &
+# blueman-applet &
+# pasystray &
 
 # Start Emacs
 exec emacs -mm

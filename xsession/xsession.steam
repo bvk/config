@@ -14,6 +14,7 @@ xrandr --dpi 174
 
 # Load X11/xterm color theme.
 xrdb -merge ${HOME}/config/xrdb/Xdefaults
+xrdb -merge ${HOME}/config/xrdb/xterm.xrdb
 xrdb -merge ${HOME}/config/xrdb/solarized.xrdb
 
 # Set default wallpaper.
@@ -23,4 +24,4 @@ feh --bg-scale ${HOME}/config/feh/wallpaper
 xhost +SI:localuser:$USER
 
 # Start Emacs
-exec /home/bvk/bin/emacs
+exec emacs -mm
