@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Don't activate screensaver
-xset s off
+# # Don't activate screensaver
+# xset s off
 
-# Disable DPMS (Energy Star) features.
-xset -dpms
+# # Disable DPMS (Energy Star) features.
+# xset -dpms
 
-# Don't blank the video device
-xset s noblank
+# # Don't blank the video device
+# xset s noblank
 
 # Use a custom DPI based on the TV screen size.
 xrandr --dpi 174
