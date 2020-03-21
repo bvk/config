@@ -131,6 +131,7 @@
 (column-number-mode 1)
 
 ;; display date and time on the mode-line
+(setq display-time-day-and-date t)
 (display-time-mode 1)
 
 ;; use unique buffer names with directory name prefix
