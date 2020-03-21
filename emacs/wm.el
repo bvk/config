@@ -107,28 +107,27 @@
 (exwm-input-set-key
  (kbd "C-c t")
  (lambda () (interactive)
-   (start-process "urxvt" "*Messages*"
-		  "urxvt"
-		  "-pe" "tabbed"
-		  "-fn" "xft:Ubuntu Mono-10:hintstyle=hintslight"
-		  "-e" "bash")))
+	 (if (get-buffer "XTerm")
+			 (switch-to-buffer "XTerm")
+		 (start-process "xterm" "*Messages*"
+		  "xterm"
+		  "-fa" "xft:Ubuntu Mono-10:hintstyle=hintslight"
+		  "-e" "bash"))))
 
 ;; "C-c T" is for terminal.
 (exwm-input-set-key
  (kbd "C-c T")
  (lambda () (interactive)
-   (start-process "urxvt" "*Messages*"
-		  "urxvt"
-		  "-pe" "tabbed"
-		  "-fn" "xft:Ubuntu Mono-16:hintstyle=hintslight"
+   (start-process "xterm" "*Messages*"
+		  "xterm"
+		  "-fa" "xft:Ubuntu Mono-16:hintstyle=hintslight"
 		  "-e" "bash")))
 
 ;; "C-c i" is for internet browser.
 (exwm-input-set-key
  (kbd "C-c i")
  (lambda () (interactive)
-   (start-process "browser" "*Messages*"
-		  "google-chrome")))
+   (start-process "browser" "*Messages*" "google-chrome")))
 
 ;; "C-c l" is for lock.
 (exwm-input-set-key
