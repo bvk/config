@@ -64,6 +64,22 @@
 (setq x-select-enable-primary t)
 (setq x-select-enable-clipboard t)
 
+;; orgmode setup
+(when (require 'org nil 'noerror)
+	(setq org-directory (expand-file-name "~/org"))
+
+	;; org-capture config.
+	(setq org-default-notes-file (concat org-directory "/notes.org"))
+	(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/tasks.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("n" "Note" entry (file+datetree "~/org/notes.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+
+	(global-set-key (kbd "C-c l") 'org-store-link)
+	(global-set-key (kbd "C-c a") 'org-agenda)
+	(global-set-key (kbd "C-c c") 'org-capture))
+
 ;; do not show the menu bar
 (menu-bar-mode 0)
 
@@ -202,9 +218,10 @@
 ;; don't ever split windows vertically.
 (setq split-height-threshold nil)
 
-;; better window switching for large displays.
-(global-set-key [S-left] 'windmove-left)
-(global-set-key [S-right] 'windmove-right)
+;; better window switching for large displays. XXX: These keybindings conflict
+;; with org-mode.
+;(global-set-key [M-left] 'windmove-left)
+;(global-set-key [M-right] 'windmove-right)
 
 ;; set keybindings for magit
 (when (require 'magit nil 'noerror)
@@ -234,7 +251,7 @@
   "Tweak your sound card volume." t)
 
 ;; open the default org-mode file on startup.
-(setq initial-buffer-choice "~/default.org")
+;(setq initial-buffer-choice "~/default.org")
 
 ;; read dir-locals.el from remote hosts also.
 (setq enable-remote-dir-locals t)
